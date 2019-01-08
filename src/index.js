@@ -1,16 +1,26 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { createStore } from 'redux';
+import {
+  Provider
+} from 'react-redux'
+import reducer from './reducers/reducer.js'
+
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render( < App / > , document.getElementById('root'));
+export const store = createStore(reducer);
+const root = document.getElementById('root');
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+console.log(store.getState());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  root
+);

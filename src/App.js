@@ -1,37 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {
+  Component
+} from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
+import axios from 'axios';
+import { shopDataURL } from './env/env';
+import getData from './actions/getData'
+import { store } from './index'
 
 class App extends Component {
+  componentWillMount() {
+    axios.get(shopDataURL)
+      .then(resp => {
+        store.dispatch(getData(resp.data));
+        console.log('dispatched');
+      })
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="row">
-          <div className="col-md-4">
-            Hello
-            </div>
-        </div>
-        <Router>
-          <div>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>{" "}
-              </li>
-            </ul>
-            <hr />
-          </div>
-        </Router>
+      <div className="app">
+        Hello
       </div>
     );
   }
