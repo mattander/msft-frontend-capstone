@@ -2,7 +2,8 @@ import {
   combineReducers
 } from "redux";
 import {
-  GET_DATA
+  GET_DATA,
+  LOADED
 } from '../constants/constants';
 
 
@@ -17,8 +18,19 @@ const shopData = (state = [], action) => {
   }
 }
 
+const loaded = (state = false, action) => {
+  switch (action.type) {
+    case LOADED:
+      return state = true;
+
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
-  shopData
+  shopData,
+  loaded
 });
 
 export default reducer;

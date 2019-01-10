@@ -9,22 +9,25 @@ import {
 } from 'react-router-dom'
 import axios from 'axios';
 import { shopDataURL } from './env/env';
-import getData from './actions/getData'
-import { store } from './index'
+import getData from './actions/getData';
+import loaded from './actions/loaded';
+import { store } from './index';
+import Test from './containers/Test';
 
 class App extends Component {
   componentWillMount() {
     axios.get(shopDataURL)
       .then(resp => {
         store.dispatch(getData(resp.data));
-        console.log('dispatched');
+        store.dispatch(loaded(true));
       })
   }
 
   render() {
     return (
       <div className="app">
-        Hello
+        Hello<br />
+        <Test />
       </div>
     );
   }
