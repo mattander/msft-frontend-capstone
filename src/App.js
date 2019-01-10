@@ -2,17 +2,16 @@ import React, {
   Component
 } from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
 import axios from 'axios';
 import { shopDataURL } from './env/env';
 import getData from './actions/getData';
 import loaded from './actions/loaded';
 import { store } from './index';
-import Test from './containers/Test';
+import { Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './containers/Home';
+import Category from './containers/Category';
+import Footer from './components/Footer';
 
 class App extends Component {
   componentWillMount() {
@@ -26,8 +25,10 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        Hello<br />
-        <Test />
+        <Header />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/category" component={Category} />
+        <Footer />
       </div>
     );
   }
