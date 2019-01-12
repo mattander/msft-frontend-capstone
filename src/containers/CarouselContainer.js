@@ -1,15 +1,13 @@
-import React from 'react';
-import CarouselTracker from '../components/CarouselTracker';
+import { connect } from 'react-redux';
 import Carousel from '../components/Carousel';
 
-const CarouselContainer = () => {
-  return (
-    <div className='container'>
-      <h2>Carousel Container</h2>
-      <Carousel />
-      <CarouselTracker />
-    </div>
-  )
-}
+const mapStateToProps = state => {
+  return {
+    data: state.shopData[0],
+    loaded: state.loaded
+  };
+};
+
+const CarouselContainer = connect(mapStateToProps)(Carousel);
 
 export default CarouselContainer;

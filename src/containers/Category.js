@@ -4,7 +4,7 @@ import CategoryBody from './CategoryBody';
 
 const Category = () => {
   return (
-    <div id="categoryContent" className="container-fluid">
+    <div>
       <h1>Cateogry</h1>
       <section className="row">
         <div className="col-md-2">

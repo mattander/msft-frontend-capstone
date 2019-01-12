@@ -14,8 +14,6 @@ import App from './App';
 export const store = createStore(reducer);
 const root = document.getElementById('root');
 
-console.log(store.getState());
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
