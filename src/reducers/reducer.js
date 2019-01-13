@@ -3,7 +3,8 @@ import {
 } from "redux";
 import {
   GET_DATA,
-  LOADED
+  LOADED,
+  CHANGE_CATEGORY
 } from '../constants/constants';
 
 
@@ -28,9 +29,39 @@ const loaded = (state = false, action) => {
   }
 }
 
+const currentCategory = (state = { category: { name: 'all' }, subcategory: { name: null, index: null } }, action) => {
+  switch (action.type) {
+    case CHANGE_CATEGORY:
+      const newState = {
+        category: {
+          name: action.data.category.name
+        },
+        subcategory: {
+          name: action.data.subcategory.name,
+          index: action.data.subcategory.index
+        }
+      }
+      return state = newState;
+
+    default:
+      return state;
+  }
+}
+
+// const currentCategory = (state = 'all', action) => {
+//   switch (action.type) {
+//     case CHANGE_CATEGORY:
+//       return state = action.data;
+
+//     default:
+//       return state;
+//   }
+// }
+
 const reducer = combineReducers({
   shopData,
-  loaded
+  loaded,
+  currentCategory
 });
 
 export default reducer;

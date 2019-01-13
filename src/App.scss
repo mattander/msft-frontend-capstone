@@ -1,0 +1,65 @@
+/* CAROUSEL MODULE */
+#productCarousel {
+  height: 250px;
+
+  .carousel-inner {
+
+    article {
+      height: 250px;
+      background-color: #e3e3e3;
+
+
+      img {
+        height: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    color: black;
+    font-size: 2rem;
+  }
+}
+
+/* CATEGORY SIDEBAR MODULE */
+#categoryListAccordion {
+  svg {
+    color: black;
+  }
+}
+
+/* SHOP BODY MODULE */
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.category-card {
+  flex: 0 1 300px;
+  width: 250px;
+  margin: 1rem 1.5rem;
+  color: #0f0f0f;
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 2px 4px #c9c9c9;
+  }
+
+  .card-body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    .card-img-top {
+      height: 125px;
+      width: auto;
+      align-self: center;
+      margin-bottom: 16px;
+    }
+  }
+}

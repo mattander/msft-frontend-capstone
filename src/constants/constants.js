@@ -1,8 +1,10 @@
 const GET_DATA = 'GET_DATA';
 const LOADED = 'LOADED';
+const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
 
 
 module.exports = {
   GET_DATA,
-  LOADED
+  LOADED,
+  CHANGE_CATEGORY
 }

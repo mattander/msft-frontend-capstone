@@ -1,7 +1,7 @@
 import React, {
   Component
 } from 'react';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 import { shopDataURL } from './env/env';
 import getData from './actions/getData';
@@ -10,16 +10,14 @@ import { store } from './index';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
-import Category from './containers/Category';
-import ProductCategory from './containers/ProductCategory';
-import Product from './containers/Product';
+import Shop from './components/Shop';
 import ShoppingCart from './containers/ShoppingCart';
 import NotFound from './containers/404NotFound';
 import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faChevronRight, faChevronLeft, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faShoppingCart);
+library.add(faShoppingCart, faChevronRight, faChevronLeft, faCaretDown);
 
 class App extends Component {
   componentWillMount() {
@@ -35,14 +33,12 @@ class App extends Component {
       <div className="app">
         {/* rubric68 - header always at the top */}
         <Header />
-        <div className="container-fluid">
+        <div className="container">
           <Switch>
             {/* rubric69 - clicking home takes user to home page */}
             <Route exact path="/" component={Home} />
             {/* rubric70 - clicking shop all takes user to shopping page */}
-            <Route exact path="/category" component={Category} />
-            <Route exact path="/product-category" component={ProductCategory} />
-            <Route exact path="/product-detail" component={Product} />
+            <Route exact path="/Shop" component={Shop} />
             {/* rubric71 - clicking cart takes user to cart */}
             <Route exact path="/shopping-cart" component={ShoppingCart} />
             <Route component={NotFound} />
