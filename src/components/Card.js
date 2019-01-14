@@ -17,7 +17,7 @@ const Card = (props) => {
           name: null,
           index: null
         }
-      })} to={"?category=" + props.itemData.category.split(' ').join('-')} className="card category-card">
+      })} to={"?category=" + props.itemData.category.split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.category}</h5>
           <p className="card-text">Includes products for:</p>
@@ -37,16 +37,20 @@ const Card = (props) => {
           name: props.itemData.name,
           index: props.itemIndex
         }
-      })} to={"?category=" + props.itemData.name.split(' ').join('-')} className="card category-card">
+      })} to={"?category=" + props.itemData.name.split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.name}</h5>
           <p className="card-text">There are {props.itemData.items.length} items for sale in this section.</p>
         </div>
       </Link>
     )
-  } else {
+  } else if (props.itemType === 'product') {
     return (
-      <Link to={"?product=" + props.itemData.name.split(' ').join('-')} className="card category-card">
+      <Link onClick={(e) => props.onCartAddItem({
+        name: props.itemData.name,
+        quantity: 1,
+        item: props.itemData
+      })} to={"?product=" + props.itemData.name.split(' ').join('-')} className="card item-card product-card">
         <div className="card-body">
           <img src={props.itemData.imagelink} alt={props.itemData.name} className="card-img-top" />
           <h5 className="card-title">{props.itemData.name}</h5>

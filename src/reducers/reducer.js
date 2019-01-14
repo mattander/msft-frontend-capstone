@@ -4,7 +4,8 @@ import {
 import {
   GET_DATA,
   LOADED,
-  CHANGE_CATEGORY
+  CHANGE_CATEGORY,
+  CART_ADD_ITEM
 } from '../constants/constants';
 
 
@@ -48,20 +49,32 @@ const currentCategory = (state = { category: { name: 'all' }, subcategory: { nam
   }
 }
 
-// const currentCategory = (state = 'all', action) => {
-//   switch (action.type) {
-//     case CHANGE_CATEGORY:
-//       return state = action.data;
-
-//     default:
-//       return state;
-//   }
-// }
+const cart = (state = [], action) => {
+  switch (action.type) {
+    case CART_ADD_ITEM:
+      const match = state.findIndex(item => {
+        return item.name === action.data.name;
+      });
+      if (match === -1) {
+        //item isn't in the cart yet
+        const newState = [...state, action.data];
+        return newState;
+      } else {
+        //item is in cart
+        let newState = [...state];
+        newState[match].quantity++;
+        return newState;
+      }
+    default:
+      return state;
+  }
+}
 
 const reducer = combineReducers({
   shopData,
   loaded,
-  currentCategory
+  currentCategory,
+  cart
 });
 
 export default reducer;

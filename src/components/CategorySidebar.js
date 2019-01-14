@@ -10,19 +10,23 @@ const CategorySidebar = (props) => {
           {item.category} <FontAwesomeIcon icon="caret-down" />
         </a>
         <ul id={'collapse' + index} className="collapse show">
-          {item.subcategories.map((subItem, index) =>
-            <li key={subItem.name}>
-              <Link onClick={(e) => props.onCategoryChange({
-                category: {
-                  name: item.category
-                },
-                subcategory: {
-                  name: subItem.name,
-                  index: index
-                }
-              })} to={'?subcategory=' + subItem.name.split(' ').join('')}>{subItem.name}</Link>
+          {item.subcategories.map((subItem, index) => {
+            const subCatClasses = subItem.items.length === 0 ? 'disabled' : null;
+
+            return (
+              <li key={subItem.name}>
+                <Link onClick={(e) => props.onCategoryChange({
+                  category: {
+                    name: item.category
+                  },
+                  subcategory: {
+                    name: subItem.name,
+                    index: index
+                  }
+                })} to={'?subcategory=' + subItem.name.split(' ').join('')} className={subCatClasses}>{subItem.name}</Link> ({subItem.items.length})
             </li>
-          )}
+            )
+          })}
         </ul>
       </article>
     );

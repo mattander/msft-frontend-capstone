@@ -11,7 +11,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import Shop from './components/Shop';
-import ShoppingCart from './containers/ShoppingCart';
+import ShoppingCart from './containers/ShoppingCartContainer';
 import NotFound from './containers/404NotFound';
 import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -33,7 +33,7 @@ class App extends Component {
       <div className="app">
         {/* rubric68 - header always at the top */}
         <Header />
-        <div className="container">
+        <div id="bodyContent" className="container mt-3 mb-5">
           <Switch>
             {/* rubric69 - clicking home takes user to home page */}
             <Route exact path="/" component={Home} />

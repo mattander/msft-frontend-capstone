@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CartIconContainer from '../containers/CartIconContainer';
 
 const Header = () => {
   return (
@@ -21,7 +21,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 {/* rubric67 - cart link in header*/}
-                <NavLink activeClassName="active" className="nav-link" to="/shopping-cart"><FontAwesomeIcon icon="shopping-cart" /> Cart (0)</NavLink>
+                <NavLink activeClassName="active" className="nav-link" to="/shopping-cart"><CartIconContainer /></NavLink>
               </li>
             </ul>
           </div>
