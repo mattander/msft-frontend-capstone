@@ -1,7 +1,7 @@
 {
   "main.css": "/msft-frontend-capstone/static/css/main.3b14d9c6.chunk.css",
-  "main.js": "/msft-frontend-capstone/static/js/main.1e384869.chunk.js",
-  "main.js.map": "/msft-frontend-capstone/static/js/main.1e384869.chunk.js.map",
+  "main.js": "/msft-frontend-capstone/static/js/main.30ef7d36.chunk.js",
+  "main.js.map": "/msft-frontend-capstone/static/js/main.30ef7d36.chunk.js.map",
   "static/css/1.ef5c6ec0.chunk.css": "/msft-frontend-capstone/static/css/1.ef5c6ec0.chunk.css",
   "static/js/1.40cd35ba.chunk.js": "/msft-frontend-capstone/static/js/1.40cd35ba.chunk.js",
   "static/js/1.40cd35ba.chunk.js.map": "/msft-frontend-capstone/static/js/1.40cd35ba.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.ef5c6ec0.chunk.css.map": "/msft-frontend-capstone/static/css/1.ef5c6ec0.chunk.css.map",
   "static/css/main.3b14d9c6.chunk.css.map": "/msft-frontend-capstone/static/css/main.3b14d9c6.chunk.css.map",
   "index.html": "/msft-frontend-capstone/index.html",
-  "precache-manifest.56d982b22c4ee5d94719929a3a07b21b.js": "/msft-frontend-capstone/precache-manifest.56d982b22c4ee5d94719929a3a07b21b.js",
+  "precache-manifest.7e875c82b2042da02c6e1528db947a49.js": "/msft-frontend-capstone/precache-manifest.7e875c82b2042da02c6e1528db947a49.js",
   "service-worker.js": "/msft-frontend-capstone/service-worker.js"
 }
