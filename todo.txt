@@ -1,2 +1,4 @@
 To do:
 - Add media queries to size the cards better. Should be two to a column on large displays and one column in smaller. 
+- Finish setting up logic to grab category and subcategory from route data
+- updateCategory should be called on shopPage load if there is category or subcategory info in the route
