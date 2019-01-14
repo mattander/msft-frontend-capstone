@@ -5,6 +5,7 @@ import './App.scss';
 import axios from 'axios';
 import { shopDataURL } from './env/env';
 import getData from './actions/getData';
+import sortData from './actions/sortData';
 import loaded from './actions/loaded';
 import { store } from './index';
 import { Route, Switch } from 'react-router-dom';
@@ -22,8 +23,11 @@ library.add(faShoppingCart, faChevronRight, faChevronLeft, faCaretDown);
 class App extends Component {
   componentWillMount() {
     axios.get(shopDataURL)
-      .then(resp => {
-        store.dispatch(getData(resp.data));
+      .then(response => {
+        store.dispatch(getData(response.data));
+        store.dispatch(sortData(response.data));
+      })
+      .then(data => {
         store.dispatch(loaded(true));
       })
   }
@@ -38,7 +42,9 @@ class App extends Component {
             {/* rubric69 - clicking home takes user to home page */}
             <Route exact path="/" component={Home} />
             {/* rubric70 - clicking shop all takes user to shopping page */}
-            <Route exact path="/Shop" component={Shop} />
+            <Route exact path="/shop" component={Shop} />
+            <Route exact path="/shop/:category" component={Shop} />
+            <Route exact path="/shop/:category/:subcategory" component={Shop} />
             {/* rubric71 - clicking cart takes user to cart */}
             <Route exact path="/shopping-cart" component={ShoppingCart} />
             <Route component={NotFound} />

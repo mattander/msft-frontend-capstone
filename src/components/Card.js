@@ -17,7 +17,7 @@ const Card = (props) => {
           name: null,
           index: null
         }
-      })} to={"?category=" + props.itemData.category.split(' ').join('-')} className="card item-card">
+      })} to={"/shop/" + props.itemData.category.toLowerCase().split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.category}</h5>
           <p className="card-text">Includes products for:</p>
@@ -56,6 +56,7 @@ const Card = (props) => {
           <h5 className="card-title">{props.itemData.name}</h5>
           <small>${props.itemData.price.toFixed(2)}</small>
           <p className="card-text">{props.itemData.description}</p>
+          <p>{props.itemData.subcategory}</p>
           <button className="btn btn-primary">Add to cart</button>
         </div>
       </Link>

@@ -3,11 +3,13 @@ import ShopBody from '../components/ShopBody';
 import changeCategory from '../actions/changeCategory';
 import cartAddItem from '../actions/cartAddItem';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     data: state.shopData[0],
     loaded: state.loaded,
-    currentCategory: state.currentCategory
+    currentCategory: state.currentCategory,
+    productList: state.productList,
+    categoryInfo: ownProps.categoryInfo
   };
 };
 

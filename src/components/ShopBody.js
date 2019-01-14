@@ -3,6 +3,10 @@ import Card from './Card';
 
 const ShopBody = (props) => {
   if (props.loaded) {
+    if (props.categoryInfo.length > 0) {
+      console.log(props.categoryInfo.category.split('-').join(' '));
+      console.log(props.currentCategory.category.name.split('-').join(' ').toLowerCase());
+    }
     //if no category is chosen, show categories in the item grid
     if (props.currentCategory.category.name === 'all') {
       return (
@@ -32,7 +36,12 @@ const ShopBody = (props) => {
         </section>
       )
     } else {
+      // have to iterate against the master list layer by layer for category
+      // and subcategory matches because the names are inconsistent between
+      // the names in the data structure vs. the names in the individual items
+      // eg. in data: 'Canned Food' in item: 'Canned Goods' breaks cleaner logic
       const itemsList = props.data.filter(item => item.category === props.currentCategory.category.name)[0].subcategories[props.currentCategory.subcategory.index].items;
+
       if (itemsList.length === 0) {
         return (
           <section id="shopBodyContent" className="p-5">

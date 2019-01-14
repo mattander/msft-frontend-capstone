@@ -5,7 +5,8 @@ import {
   GET_DATA,
   LOADED,
   CHANGE_CATEGORY,
-  CART_ADD_ITEM
+  CART_ADD_ITEM,
+  SORT_DATA
 } from '../constants/constants';
 
 
@@ -13,6 +14,26 @@ const shopData = (state = [], action) => {
   switch (action.type) {
     case GET_DATA:
       const newState = [...state, action.data];
+      return newState;
+
+    default:
+      return state;
+  }
+}
+
+const productList = (state = [], action) => {
+  switch (action.type) {
+    case SORT_DATA:
+      let listOfItems = [];
+      action.data.forEach(item => {
+        return item.subcategories.forEach(subItem => {
+          return subItem.items.forEach(subItem2 => {
+            listOfItems.push(subItem2);
+            return subItem2;
+          });
+        });
+      });
+      const newState = [...state, ...listOfItems];
       return newState;
 
     default:
@@ -74,7 +95,8 @@ const reducer = combineReducers({
   shopData,
   loaded,
   currentCategory,
-  cart
+  cart,
+  productList
 });
 
 export default reducer;
