@@ -9,15 +9,7 @@ const Card = (props) => {
       )
     })
     return (
-      <Link onClick={(e) => props.onCategoryChange({
-        category: {
-          name: props.itemData.category
-        },
-        subcategory: {
-          name: null,
-          index: null
-        }
-      })} to={"/shop/" + props.itemData.category.toLowerCase().split(' ').join('-')} className="card item-card">
+      <Link to={"/shop/" + props.itemData.category.toLowerCase().split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.category}</h5>
           <p className="card-text">Includes products for:</p>
@@ -29,15 +21,7 @@ const Card = (props) => {
     );
   } else if (props.itemType === 'subCategory') {
     return (
-      <Link onClick={(e) => props.onCategoryChange({
-        category: {
-          name: props.currentCategory.category.name
-        },
-        subcategory: {
-          name: props.itemData.name,
-          index: props.itemIndex
-        }
-      })} to={"/shop/" + props.currentCategory.category.name.toLowerCase().split(' ').join('-') + '/' + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card">
+      <Link to={"/shop/" + props.currentCategory.category.toLowerCase().split(' ').join('-') + '/' + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.name}</h5>
           <p className="card-text">There are {props.itemData.items.length} items for sale in this section.</p>

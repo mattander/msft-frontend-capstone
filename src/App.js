@@ -29,7 +29,7 @@ class App extends Component {
       })
       .then(data => {
         store.dispatch(loaded(true));
-      })
+      });
   }
 
   render() {

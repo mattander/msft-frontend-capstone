@@ -4,7 +4,7 @@ import {
 import {
   GET_DATA,
   LOADED,
-  CHANGE_CATEGORY,
+  // CHANGE_CATEGORY,
   CART_ADD_ITEM,
   SORT_DATA
 } from '../constants/constants';
@@ -50,38 +50,38 @@ const loaded = (state = false, action) => {
       return state;
   }
 }
+//don't need currentCategory anymore
+// const currentCategory = (state = { category: { name: null }, subcategory: { name: null, index: null } }, action) => {
+//   switch (action.type) {
+//     case CHANGE_CATEGORY:
 
-const currentCategory = (state = { category: { name: null }, subcategory: { name: null, index: null } }, action) => {
-  switch (action.type) {
-    case CHANGE_CATEGORY:
+//       // const checkCase = (str, type) => {
+//       //   if (str.indexOf('-') === -1) {
+//       //     return action.data.type.name;
+//       //   } else {
+//       //     return str.split('-').map(item => item[0].toUpperCase() + item.slice(1, item.length)).join(' ');
+//       //   }
+//       // }
 
-      // const checkCase = (str, type) => {
-      //   if (str.indexOf('-') === -1) {
-      //     return action.data.type.name;
-      //   } else {
-      //     return str.split('-').map(item => item[0].toUpperCase() + item.slice(1, item.length)).join(' ');
-      //   }
-      // }
+//       let catName = action.data.category.name;
+//       let subCatName = action.data.subcategory.name;
 
-      let catName = action.data.category.name;
-      let subCatName = action.data.subcategory.name;
+//       const newState = {
 
-      const newState = {
+//         category: {
+//           name: catName
+//         },
+//         subcategory: {
+//           name: subCatName,
+//           index: action.data.subcategory.index
+//         }
+//       }
+//       return state = newState;
 
-        category: {
-          name: catName
-        },
-        subcategory: {
-          name: subCatName,
-          index: action.data.subcategory.index
-        }
-      }
-      return state = newState;
-
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }
 
 const cart = (state = [], action) => {
   switch (action.type) {
@@ -107,7 +107,7 @@ const cart = (state = [], action) => {
 const reducer = combineReducers({
   shopData,
   loaded,
-  currentCategory,
+  // currentCategory,
   cart,
   productList
 });

@@ -1,4 +1,31 @@
 To do:
 - Add media queries to size the cards better. Should be two to a column on large displays and one column in smaller. 
-- Finish setting up logic to grab category and subcategory from route data
+- Finish setting up logic to grab category and subcategory from route data - DONE!
 - updateCategory should be called on shopPage load if there is category or subcategory info in the route
+
+
+
+
+
+Titlecase but not the word and function (works with hyphens or spaces):
+
+
+
+const toTitleCase = (str, joiner) => {
+    if(str.indexOf('-') !== -1) {
+        return str.toLowerCase().split('-').map(item => {if(item.indexOf('and') === -1) {return item[0].toUpperCase() + item.slice(1,item.length)} else {return item} }).join(joiner);
+    } else {
+        return str.toLowerCase().split(' ').map(item => {if(item.indexOf('and') === -1) {return item[0].toUpperCase() + item.slice(1,item.length)} else {return item} }).join(joiner);
+    }
+}
+
+
+
+if (this.props.categoryInfo.subcategory) {
+      console.log('cat: ' + this.props.categoryInfo.category);
+      console.log('subcat: ' + this.props.categoryInfo.subcategory);
+
+    } else if (this.props.categoryInfo.category) {
+      console.log('cat: ' + this.props.categoryInfo.category);
+
+    } else { console.log('nothing') }
