@@ -37,7 +37,7 @@ const Card = (props) => {
           name: props.itemData.name,
           index: props.itemIndex
         }
-      })} to={"?category=" + props.itemData.name.split(' ').join('-')} className="card item-card">
+      })} to={"/shop/" + props.currentCategory.category.name.toLowerCase().split(' ').join('-') + '/' + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.name}</h5>
           <p className="card-text">There are {props.itemData.items.length} items for sale in this section.</p>

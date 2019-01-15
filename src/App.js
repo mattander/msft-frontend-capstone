@@ -39,10 +39,10 @@ class App extends Component {
         <Header />
         <div id="bodyContent" className="container mt-3 mb-5">
           <Switch>
+            <Route path={'/shop/:category/:subcategory'} component={Shop} />
+            <Route path={'/shop/:category'} component={Shop} />
             {/* rubric70 - clicking shop all takes user to shopping page */}
             <Route exact path={'/shop'} component={Shop} />
-            <Route exact path={'/shop/:category'} component={Shop} />
-            <Route exact path={'/shop/:category/:subcategory'} component={Shop} />
             {/* rubric71 - clicking cart takes user to cart */}
             <Route exact path={'/shopping-cart'} component={ShoppingCart} />
             {/* rubric69 - clicking home takes user to home page */}

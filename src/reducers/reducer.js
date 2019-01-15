@@ -51,15 +51,28 @@ const loaded = (state = false, action) => {
   }
 }
 
-const currentCategory = (state = { category: { name: 'all' }, subcategory: { name: null, index: null } }, action) => {
+const currentCategory = (state = { category: { name: null }, subcategory: { name: null, index: null } }, action) => {
   switch (action.type) {
     case CHANGE_CATEGORY:
+
+      // const checkCase = (str, type) => {
+      //   if (str.indexOf('-') === -1) {
+      //     return action.data.type.name;
+      //   } else {
+      //     return str.split('-').map(item => item[0].toUpperCase() + item.slice(1, item.length)).join(' ');
+      //   }
+      // }
+
+      let catName = action.data.category.name;
+      let subCatName = action.data.subcategory.name;
+
       const newState = {
+
         category: {
-          name: action.data.category.name
+          name: catName
         },
         subcategory: {
-          name: action.data.subcategory.name,
+          name: subCatName,
           index: action.data.subcategory.index
         }
       }

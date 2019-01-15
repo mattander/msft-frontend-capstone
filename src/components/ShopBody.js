@@ -3,12 +3,8 @@ import Card from './Card';
 
 const ShopBody = (props) => {
   if (props.loaded) {
-    if (props.categoryInfo.length > 0) {
-      console.log(props.categoryInfo.category.split('-').join(' '));
-      console.log(props.currentCategory.category.name.split('-').join(' ').toLowerCase());
-    }
     //if no category is chosen, show categories in the item grid
-    if (props.currentCategory.category.name === 'all') {
+    if (props.currentCategory.category.name === null) {
       return (
         <section id="shopBodyContent" className="shopContent-all">
           <p>Pick a category below or in the panel on the left.</p>

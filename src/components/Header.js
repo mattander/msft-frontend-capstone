@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import CartIconContainer from '../containers/CartIconContainer';
+import ShopAllContainer from '../containers/ShopAllContainer';
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 {/* rubric66 - shopping link in header*/}
-                <NavLink activeClassName="active" className="nav-link" to="/shop">Shop all</NavLink>
+                <ShopAllContainer />
               </li>
               <li className="nav-item">
                 {/* rubric67 - cart link in header*/}
