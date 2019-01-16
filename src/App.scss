@@ -1,3 +1,5 @@
+@import 'mixins';
+
 body {
   background-color: rgb(247, 242, 242);
 }
@@ -46,10 +48,17 @@ body {
 }
 
 .item-card {
-  flex: 0 1 300px;
-  width: 225px;
-  margin: 1rem 1.5rem;
+  flex: 0 1 100%;
+  margin: 1rem;
   color: #0f0f0f;
+
+  @include breakpoint(sm) {
+    flex: 0 1 46%;
+  }
+
+  @include breakpoint(lg) {
+    flex: 0 1 29%;
+  }
 
   &:hover {
     color: black;

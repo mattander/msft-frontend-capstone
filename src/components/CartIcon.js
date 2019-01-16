@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
 
 const CartIcon = (props) => {
   let cartTotal = 0;
@@ -7,9 +8,9 @@ const CartIcon = (props) => {
     cartTotal = cartTotal + item.quantity;
   });
   return (
-    <span>
+    <NavLink activeClassName="active" className="nav-link" to="/shopping-cart">
       <FontAwesomeIcon icon="shopping-cart" /> Cart {cartTotal}
-    </span>
+    </NavLink>
   )
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import CartIconContainer from '../containers/CartIconContainer';
-import ShopAllContainer from '../containers/ShopAllContainer';
 
 const Header = () => {
   return (
@@ -11,18 +10,19 @@ const Header = () => {
         <div className="container">
           <Link className="navbar-brand" to="/">WorldWideImporters</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+            Menu
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 {/* rubric66 - shopping link in header*/}
-                <ShopAllContainer />
+                <NavLink activeClassName="active" className="nav-link" to="/shop">Shop all</NavLink>
               </li>
               <li className="nav-item">
                 {/* rubric67 - cart link in header*/}
-                <NavLink activeClassName="active" className="nav-link" to="/shopping-cart"><CartIconContainer /></NavLink>
+                {/* Needs container component to show number of items in the cart */}
+                <CartIconContainer />
               </li>
             </ul>
           </div>

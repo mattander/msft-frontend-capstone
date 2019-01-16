@@ -10,7 +10,7 @@ const CategorySidebar = (props) => {
           <a data-toggle="collapse" href={'#collapse' + index} role="button" aria-expanded="false" aria-controls="collapseExample">
             {item.category} <FontAwesomeIcon icon="caret-down" />
           </a>
-          <ul id={'collapse' + index} className="collapse show">
+          <ul id={'collapse' + index} className="collapse">
             {item.subcategories.map((subItem, index) => {
               const subCatClasses = subItem.items.length === 0 ? 'disabled' : null;
 
@@ -35,7 +35,7 @@ const CategorySidebar = (props) => {
 
     return (
       <section className="accordion card bg-light p-3 mb-5" id="categoryListAccordion">
-        <h3 className="mb-3">Categories</h3>
+        <p className="h5 mb-3">Categories</p>
         {categoryList}
       </section>
     );
