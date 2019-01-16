@@ -6,7 +6,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     data: state.shopData[0],
     loaded: state.loaded,
-    currentCategory: state.currentCategory,
     productList: state.productList,
     filters: state.filters,
     categoryInfo: ownProps.categoryInfo

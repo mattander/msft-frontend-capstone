@@ -9,27 +9,34 @@ const FilterBar = (props) => {
     }
   }
   const subcat = toTitleCase(props.categoryInfo.subcategory, ' ');
-  console.log(props.itemsList[0])
   return (
-    <div className="d-flex container-fluid justify-content-between">
-      <div>Showing {props.itemsList.length} of {props.itemsList.length} items in {subcat}</div>
+    <div className="container-fluid">
 
-      <div>Filters:
-        <div className="ml-3 form-group form-check">
+
+      <div>Showing {props.filteredItemsList.length} of {props.itemsList.length} items in {subcat}</div>
+
+
+      <form className="my-3 form-inline">
+        <div className="form-group form-check">
           <input onChange={(e) => props.onFilterChange({
             filter: 'inStockOnly',
             state: e.target.checked
           })} type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">In-stock only <span className="text-muted">({props.itemsList.filter(item => item.stock > 0).length})</span></label>
+          <label className="form-check-label" htmlFor="exampleCheck1">Show in-stock only&nbsp;<span className="text-muted">({props.itemsList.filter(item => item.stock > 0).length})</span></label>
         </div>
-        <div className="ml-3 form-group form-check">
-          <input onChange={(e) => props.onFilterChange({
-            filter: 'testFilter',
-            state: 'reverseAlpha'
-          })} type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">In-stock only <span className="text-muted">({props.itemsList.filter(item => item.stock > 0).length})</span></label>
+
+        <div className="ml-3 form-group">
+          <label className="sr-only" htmlFor="itemSort">Sort items:</label>
+          <select onChange={(e) => props.onFilterChange({
+            filter: 'sortBy',
+            state: e.target.value
+          })} className="form-control custom-select custom-select-sm ml-2" id="itemSort" defaultValue="lowToHigh">
+            <option value="lowToHigh">Price (low to high)</option>
+            <option value="highToLow">Price (high to low)</option>
+          </select>
         </div>
-      </div>
+      </form>
+
 
     </div>
   )

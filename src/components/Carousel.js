@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Carousel = props => {
   // Make sure the data is loaded before rendering the component
   if (props.loaded) {
-    // const categories = props.data.map((el) => <h4>{el.category}</h4>);
-    console.log(props.data[0].subcategories[0].items[0]['imagelink']);
     return (
       <div>
         <h3>Carousel</h3>

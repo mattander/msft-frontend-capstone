@@ -13,13 +13,33 @@ const ShopBody = (props) => {
 
 
   if (props.loaded) {
-    console.log(props);
     if (props.categoryInfo.subcategory) {
-      //cat and subcat
       const cat = toTitleCase(props.categoryInfo.category, ' ');
       const subcat = toTitleCase(props.categoryInfo.subcategory, ' ');
 
       const itemsList = props.data.filter(item => toTitleCase(item.category, ' ') === cat)[0].subcategories.filter(item => item.name === subcat)[0].items;
+
+      const filterItems = (items) => {
+        let filteredList = items;
+
+        if (props.filters.sortBy) {
+          if (props.filters.sortBy === 'lowToHigh') {
+            const listCopy = filteredList.sort((a, b) => a.price - b.price);
+            filteredList = listCopy;
+          } else {
+            const listCopy = filteredList.sort((a, b) => b.price - a.price);
+            filteredList = listCopy;
+          }
+        }
+
+        if (props.filters.inStockOnly) {
+          const listCopy = filteredList.filter(item => item.stock > 0);
+          filteredList = listCopy;
+        }
+        return filteredList;
+      };
+
+      const filteredItems = filterItems(itemsList);
 
       // Pagination code. Saving this just in case.
 
@@ -35,7 +55,7 @@ const ShopBody = (props) => {
       //   }
       // }
 
-      if (itemsList.length === 0) {
+      if (filteredItems.length === 0) {
         return (
           <section id="shopBodyContent" className="p-5">
             <p className="lead">Sorry, it looks like we don't have any products in this category right now.</p>
@@ -45,9 +65,9 @@ const ShopBody = (props) => {
       } else {
         return (
           <section id="shopBodyContent" className="container-fluid">
-            <FilterBarContainer itemsList={itemsList} categoryInfo={props.categoryInfo} />
+            <FilterBarContainer itemsList={itemsList} filteredItemsList={filteredItems} categoryInfo={props.categoryInfo} />
             <div className="card-container">
-              {itemsList.map((item, index) => {
+              {filteredItems.map((item, index) => {
                 return (
                   <Card onCartAddItem={props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" currentCategory={props.categoryInfo} />
                 )
