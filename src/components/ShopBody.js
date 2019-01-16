@@ -44,7 +44,7 @@ const ShopBody = (props) => {
         );
       } else {
         return (
-          <section id="shopBodyContent">
+          <section id="shopBodyContent" className="container-fluid">
             <FilterBarContainer itemsList={itemsList} categoryInfo={props.categoryInfo} />
             <div className="card-container">
               {itemsList.map((item, index) => {
