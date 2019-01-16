@@ -5,7 +5,6 @@ import './App.scss';
 import axios from 'axios';
 import { shopDataURL } from './env/env';
 import getData from './actions/getData';
-import sortData from './actions/sortData';
 import loaded from './actions/loaded';
 import { store } from './index';
 import { Route, Switch } from 'react-router-dom';
@@ -25,7 +24,6 @@ class App extends Component {
     axios.get(shopDataURL)
       .then(response => {
         store.dispatch(getData(response.data));
-        store.dispatch(sortData(response.data));
       })
       .then(data => {
         store.dispatch(loaded(true));

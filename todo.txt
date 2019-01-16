@@ -3,6 +3,11 @@ To do:
 - Finish setting up logic to grab category and subcategory from route data - DONE!
 - updateCategory should be called on shopPage load if there is category or subcategory info in the route
 - remove ShopAllLink and ShopAllLinkContainer
+- add pagination if I have time, or remove the logic for it that I put in cards
+- update html attributes for the filters inputs
+- remove the test filters
+- finish filters
+- add product page
 
 
 

@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CategorySidebar = (props) => {
   if (props.loaded) {
+    const toUrlCase = (str) => {
+      return str.toLowerCase().split(' ').join('-');
+    }
     const categoryList = props.data.map((item, index) => {
       return (
         <article key={"category" + item.category}>
@@ -16,15 +19,7 @@ const CategorySidebar = (props) => {
 
               return (
                 <li key={subItem.name}>
-                  <Link onClick={(e) => props.onCategoryChange({
-                    category: {
-                      name: item.category
-                    },
-                    subcategory: {
-                      name: subItem.name,
-                      index: index
-                    }
-                  })} to={'?subcategory=' + subItem.name.split(' ').join('')} className={subCatClasses}>{subItem.name}</Link> ({subItem.items.length})
+                  <Link to={'/shop/' + toUrlCase(item.category) + '/' + toUrlCase(subItem.name)} className={subCatClasses}>{subItem.name}</Link> ({subItem.items.length})
             </li>
               )
             })}

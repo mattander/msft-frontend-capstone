@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import FilterBarContainer from '../containers/FilterBarContainer';
 
 const ShopBody = (props) => {
   const toTitleCase = (str, joiner) => {
@@ -12,12 +13,27 @@ const ShopBody = (props) => {
 
 
   if (props.loaded) {
+    console.log(props);
     if (props.categoryInfo.subcategory) {
       //cat and subcat
       const cat = toTitleCase(props.categoryInfo.category, ' ');
       const subcat = toTitleCase(props.categoryInfo.subcategory, ' ');
 
       const itemsList = props.data.filter(item => toTitleCase(item.category, ' ') === cat)[0].subcategories.filter(item => item.name === subcat)[0].items;
+
+      // Pagination code. Saving this just in case.
+
+      // const paginateItems = (list, itemsPerPage) => {
+      //   if (list.length > itemsPerPage) {
+      //     let paginatedItemsList = [];
+      //     for (let i = 0; i <= parseInt(list.length / itemsPerPage); i++) {
+      //       const startIndex = itemsPerPage * i;
+      //       const stopIndex = i < parseInt(list.length / itemsPerPage) ? itemsPerPage * (i + 1) : list.length;
+      //       paginatedItemsList.push(list.slice(startIndex, stopIndex));
+      //     }
+      //     return paginatedItemsList;
+      //   }
+      // }
 
       if (itemsList.length === 0) {
         return (
@@ -29,7 +45,7 @@ const ShopBody = (props) => {
       } else {
         return (
           <section id="shopBodyContent">
-            <div className="container-fluid">Showing {itemsList.length} of {itemsList.length} items in {subcat}</div>
+            <FilterBarContainer itemsList={itemsList} categoryInfo={props.categoryInfo} />
             <div className="card-container">
               {itemsList.map((item, index) => {
                 return (
