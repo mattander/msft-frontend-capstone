@@ -1,13 +1,10 @@
 To do:
-- Add media queries to size the cards better. Should be two to a column on large displays and one column in smaller. 
+- Add media queries to size the cards better. Should be two to a column on large displays and one column in smaller. - DONE!
 - Finish setting up logic to grab category and subcategory from route data - DONE!
-- updateCategory should be called on shopPage load if there is category or subcategory info in the route
-- remove ShopAllLink and ShopAllLinkContainer
 - add pagination if I have time, or remove the logic for it that I put in cards
-- update html attributes for the filters inputs
-- remove the test filters
-- finish filters
-- add product page
+- finish filters - DONE!
+- add product page IN PROGRESS
+- add cartRemoveItem and cartUpdateItem
 
 
 

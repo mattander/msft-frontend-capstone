@@ -69,7 +69,7 @@ const ShopBody = (props) => {
             <div className="card-container">
               {filteredItems.map((item, index) => {
                 return (
-                  <Card onCartAddItem={props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" currentCategory={props.categoryInfo} />
+                  <Card onCartAddItem={props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" categoryInfo={props.categoryInfo} />
                 )
               })}
             </div>
@@ -87,7 +87,7 @@ const ShopBody = (props) => {
           <div className="card-container">
             {props.data.filter((item) => item.category === cat)[0].subcategories.map((item, index) => {
               return (
-                <Card key={'subcategory-' + item.name} itemData={item} itemIndex={index} itemType="subCategory" currentCategory={props.categoryInfo} />
+                <Card key={'subcategory-' + item.name} itemData={item} itemIndex={index} itemType="subCategory" categoryInfo={props.categoryInfo} />
               )
             })}
           </div>
