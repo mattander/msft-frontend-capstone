@@ -5,6 +5,7 @@ To do:
 - finish filters - DONE!
 - add product page IN PROGRESS
 - add cartRemoveItem and cartUpdateItem
+- add redirect to 404 when category or subcat or product doesn't exist, maybe only match route if the route items check out against the item data list?
 
 
 

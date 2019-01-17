@@ -10,7 +10,7 @@ const Shop = (props) => {
           <CategorySidebarContainer />
         </div>
         <div className="col-md-9">
-          <ShopBodyContainer categoryInfo={props.match.params} />
+          <ShopBodyContainer categoryInfo={props.match.params} history={props.history} />
         </div>
       </div>
     </div>

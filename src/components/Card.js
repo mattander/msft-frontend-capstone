@@ -29,18 +29,25 @@ const Card = (props) => {
       </Link>
     )
   } else if (props.itemType === 'product') {
+    //have to write a handler to override the Link behaviour due to a react router bug. When you click an element with an onClick this is the child of a <Link/>, the Link's onClick fires at the same time. 
+    
+    const addCartHandler = (e) => {
+      console.log(e);
+      e.preventDefault();
+      props.onCartAddItem({
+        name: props.itemData.name,
+        quantity: 1,
+        item: props.itemData
+      })
+    }
     return (
-      <Link to={"/shop/"+ props.categoryInfo.category.toLowerCase().split(' ').join('-') +"/"+ props.categoryInfo.subcategory.toLowerCase().split(' ').join('-') +"/" + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card product-card">
+      <Link to={"/shop/" + props.categoryInfo.category.toLowerCase().split(' ').join('-') + "/" + props.categoryInfo.subcategory.toLowerCase().split(' ').join('-') + "/" + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card product-card">
         <div className="card-body">
           <img src={props.itemData.imagelink} alt={props.itemData.name} className="card-img-top" />
           <h5 className="card-title">{props.itemData.name}</h5>
           <small>${props.itemData.price.toFixed(2)}</small>
           <p className="card-text">{props.itemData.description}</p>
-          <button onClick={(e) => props.onCartAddItem({
-            name: props.itemData.name,
-            quantity: 1,
-            item: props.itemData
-          })} className="btn btn-primary">Add to cart</button>
+          <button onClick={(e) => addCartHandler(e)} className="btn btn-primary">Add to cart</button>
         </div>
       </Link>
     )
