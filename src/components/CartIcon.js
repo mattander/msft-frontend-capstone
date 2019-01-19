@@ -9,7 +9,7 @@ const CartIcon = (props) => {
   });
   return (
     <NavLink activeClassName="active" className="nav-link" to="/shopping-cart">
-      <FontAwesomeIcon icon="shopping-cart" /> Cart {cartTotal}
+      <FontAwesomeIcon icon="shopping-cart" /> Cart {parseInt(cartTotal)}
     </NavLink>
   )
 }

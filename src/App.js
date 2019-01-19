@@ -13,7 +13,7 @@ import Home from './components/Home';
 import Shop from './components/Shop';
 import ShoppingCart from './containers/ShoppingCartContainer';
 import Product from './containers/ProductContainer'
-import NotFound from './containers/404NotFound';
+import NotFound from './components/404NotFound';
 import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faShoppingCart, faChevronRight, faChevronLeft, faCaretDown, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -32,8 +32,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("This is the process.env", process.env.PUBLIC_URL);
-    // debugger
     return (
       <div className="app">
         {/* rubric68 - header always at the top */}

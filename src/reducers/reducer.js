@@ -57,6 +57,7 @@ const cart = (state = [], action) => {
       const match = state.findIndex(item => {
         return item.name === action.data.name;
       });
+      
       if (match === -1) {
         //item isn't in the cart yet
         const newState = [...state, action.data];
@@ -64,7 +65,7 @@ const cart = (state = [], action) => {
       } else {
         //item is in cart
         let newState = [...state];
-        newState[match].quantity++;
+        newState[match].quantity = parseInt(newState[match].quantity) + parseInt(action.data.quantity);
         return newState;
       }
     default:

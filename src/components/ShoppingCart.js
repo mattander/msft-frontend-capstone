@@ -28,7 +28,7 @@ const ShoppingCart = (props) => {
         <div className="card-body">
           <h5>{item.name}</h5>
           <p>${item.item.price.toFixed(2)}</p>
-          <p>Quantity{item.quantity}</p>
+          <p>Quantity: {item.quantity}</p>
         </div>
       )
     });
