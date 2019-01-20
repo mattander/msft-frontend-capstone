@@ -75,7 +75,7 @@ const ShopBody = (props) => {
               <div className="card-container">
                 {filteredItems.map((item, index) => {
                   return (
-                    <Card onCartAddItem={props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" categoryInfo={props.categoryInfo} history={props.history}/>
+                    <Card onCartAddItem={props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" categoryInfo={props.categoryInfo} history={props.history} />
                   )
                 })}
               </div>
@@ -123,7 +123,13 @@ const ShopBody = (props) => {
       )
     }
   } else {
-    return <p>Loading...</p>
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    )
   }
 };
 

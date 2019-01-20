@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ShoppingCart from '../components/ShoppingCart.js';
-import cartAddItem from '../actions/cartAddItem';
+import cartRemoveItem from '../actions/cartRemoveItem';
+import cartUpdateItem from '../actions/cartUpdateItem';
 
 const mapStateToProps = state => {
   return {
@@ -10,8 +11,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onCartChange: changes => {
-      dispatch(cartAddItem(changes));
+    cartRemoveItem: changes => {
+      dispatch(cartRemoveItem(changes));
+    },
+    cartUpdateItem: changes => {
+      dispatch(cartUpdateItem(changes));
     }
   };
 };

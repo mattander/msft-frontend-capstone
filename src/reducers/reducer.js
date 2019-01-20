@@ -6,7 +6,9 @@ import {
   LOADED,
   UPDATE_FILTERS,
   CART_ADD_ITEM,
-  SORT_DATA
+  SORT_DATA,
+  CART_REMOVE_ITEM,
+  CART_UPDATE_ITEM
 } from '../constants/constants';
 
 
@@ -52,22 +54,42 @@ const loaded = (state = false, action) => {
 }
 
 const cart = (state = [], action) => {
+  const sortAlpha = (a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+
   switch (action.type) {
-    case CART_ADD_ITEM:
+    case CART_ADD_ITEM: {
       const match = state.findIndex(item => {
         return item.name === action.data.name;
       });
-      
+
       if (match === -1) {
         //item isn't in the cart yet
-        const newState = [...state, action.data];
+        const newState = [...state, action.data].sort(sortAlpha);
         return newState;
       } else {
         //item is in cart
         let newState = [...state];
-        newState[match].quantity = parseInt(newState[match].quantity) + parseInt(action.data.quantity);
+        newState[match].quantity = parseInt(newState[match].quantity) + parseInt(action.data.quantity).sort(sortAlpha);
         return newState;
       }
+    }
+    case CART_REMOVE_ITEM: {
+      //Find the item in the cart data and remove it. No need for checks, this only gets called if the item is already in the cart
+      const newState = state.filter(item => item.name !== action.data.name).sort(sortAlpha);
+      return newState;
+    }
+    case CART_UPDATE_ITEM: {
+      //Find the item in the cart and update it's quantity
+      const updatedItem = Object.assign({}, state.filter(item => item.name === action.data.name)[0], { quantity: action.data.quantity });
+      const newState = [...state.filter(item => item.name !== action.data.name), updatedItem].sort(sortAlpha);
+      return newState;
+    }
     default:
       return state;
   }
