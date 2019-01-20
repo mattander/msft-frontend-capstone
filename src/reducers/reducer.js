@@ -64,19 +64,25 @@ const cart = (state = [], action) => {
 
   switch (action.type) {
     case CART_ADD_ITEM: {
-      const match = state.findIndex(item => {
-        return item.name === action.data.name;
-      });
-
-      if (match === -1) {
-        //item isn't in the cart yet
-        const newState = [...state, action.data].sort(sortAlpha);
-        return newState;
+      if (action.data.quantity <= 0) {
+        // if the quantity is 0
+        return state;
       } else {
-        //item is in cart
-        let newState = [...state];
-        newState[match].quantity = parseInt(newState[match].quantity) + parseInt(action.data.quantity).sort(sortAlpha);
-        return newState;
+        // if the quantity is more than 0
+        const match = state.findIndex(item => {
+          return item.name === action.data.name;
+        });
+  
+        if (match === -1) {
+          //item isn't in the cart yet
+          const newState = [...state, action.data].sort(sortAlpha);
+          return newState;
+        } else {
+          //item is in cart
+          let newState = [...state];
+          newState[match].quantity = parseInt(newState[match].quantity) + parseInt(action.data.quantity);
+          return newState.sort(sortAlpha);
+        }
       }
     }
     case CART_REMOVE_ITEM: {

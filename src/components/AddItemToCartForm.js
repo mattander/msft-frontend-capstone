@@ -22,13 +22,13 @@ class AddItemToCartForm extends Component {
       item: this.props.item
     });
     e.preventDefault();
-  }onSubmit
+  } onSubmit
 
   render() {
     return (
-      <form className="form-inline product-page__add-to-cart-form mb-4">
+      <form className="form-inline product-page__add-to-cart-form mb-4 needs-validation">
         <label htmlFor="itemQuantity">Quantity: </label>
-        <input onChange={this.handleChange} className="form-control ml-2 mr-3" id="itemQuantity" type="number" min="1" max={this.props.item.stock} defaultValue="1"/>
+        <input onChange={this.handleChange} className="form-control ml-2 mr-3" id="itemQuantity" type="number" min="1" max={this.props.item.stock} defaultValue="1" required/>
         <button onClick={this.onSubmit} className="btn btn-primary">Add to cart</button>
       </form>
     );

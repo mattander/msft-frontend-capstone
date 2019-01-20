@@ -7,10 +7,24 @@ import NotFound from './404NotFound';
 const Product = (props) => {
     // if data is loaded, load the component, otherwise say loading
     if (props.loaded) {
+        const toTitleCase = (str, joiner = ' ', seperator = '-') => {
+            // if sep is dashes and there are spaces, make them dashes
+            if (seperator === '-' && str.indexOf(' ')) {
+                const strCopy = str.split(' ').join('-')
+                return strCopy.toLowerCase().split(seperator).map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
+            } else if (seperator === ' ' && str.indexOf('-')) {
+            // if sep is spaces and there are dashes, make them spaces
+                const strCopy = str.split('-').join(' ')
+                return strCopy.toLowerCase().split(seperator).map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
+            } else {
+                return str.toLowerCase().split(seperator).map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
+            }
+          }
 
         // if the item exists show all the item information, if it doesn't exist, show the 404 page
-        if (props.data.filter(item => item.category === props.categoryName)[0].subcategories.filter(item => item.name === props.subcategoryName)[0].items.filter(item => item.name === props.productName).length !== 0) {
-            const item = props.data.filter(item => item.category === props.categoryName)[0].subcategories.filter(item => item.name === props.subcategoryName)[0].items.filter(item => item.name === props.productName)[0];
+        if (props.data.filter(item => item.category === props.categoryName)[0].subcategories.filter(item => item.name === props.subcategoryName)[0].items.filter(item => toTitleCase(item.name) === props.productName).length !== 0) {
+
+            const item = props.data.filter(item => item.category === props.categoryName)[0].subcategories.filter(item => item.name === props.subcategoryName)[0].items.filter(item => toTitleCase(item.name) === props.productName)[0];
 
             let rating = [];
 
