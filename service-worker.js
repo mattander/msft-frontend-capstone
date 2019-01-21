@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/msft-frontend-capstone/precache-manifest.12ca0866eaa1187dcfb79535590b13f8.js"
+  "/msft-frontend-capstone/precache-manifest.c26b9805aa714ffba3fdba2936f6c8df.js"
 );
 
 workbox.clientsClaim();
