@@ -16,6 +16,7 @@ class AddItemToCartForm extends Component {
   }
 
   onSubmit(e) {
+    console.log('product add item form', this.props.item);
     this.props.onCartAddItem({
       name: this.props.item.name,
       quantity: this.state.quantity,
@@ -28,7 +29,7 @@ class AddItemToCartForm extends Component {
     return (
       <form className="form-inline product-page__add-to-cart-form mb-4 needs-validation">
         <label htmlFor="itemQuantity">Quantity: </label>
-        <input onChange={this.handleChange} className="form-control ml-2 mr-3" id="itemQuantity" type="number" min="1" max={this.props.item.stock} defaultValue="1" required/>
+        <input onChange={this.handleChange} className="form-control ml-2 mr-3" id="itemQuantity" type="number" min="1" max={this.props.item.stock} defaultValue="1" required />
         <button onClick={this.onSubmit} className="btn btn-primary">Add to cart</button>
       </form>
     );

@@ -125,7 +125,6 @@ class Carousel extends Component {
 
   render() {
     if (this.props.loaded) {
-      console.log(this.props.data[0].subcategories[0].items[0].imagelink);
       return (
         <div>
           <div className="my-carousel-container">
@@ -161,10 +160,10 @@ class Carousel extends Component {
                 </div>
                 <div className="col-xs-12 col-lg-6 carousel-text">
 
-                <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')}>
-                    <p><span className="lead">Lean, green, makes your pee smell mean!</span> <br />Don't be afraid of these beautiful green vegetables. <br /><span className="text-muted">(Jim, I swear to god if you keep over-ordering these, I'll fire you).</span>
-                    <br /><strong>Only ${this.props.productList[92].price}</strong></p>
-                </Link>
+                  <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')}>
+                    <p><span className="lead">Lean, green, and delicious!</span> <br />Don't be afraid of these beautiful green vegetables. <br /><span className="text-muted">(Jim, I swear to god if you keep over-ordering these, I'll fire you).</span>
+                      <br /><strong>Only ${this.props.productList[92].price}</strong></p>
+                  </Link>
                 </div>
               </div>
             </div>
