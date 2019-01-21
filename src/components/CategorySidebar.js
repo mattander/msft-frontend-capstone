@@ -29,7 +29,7 @@ const CategorySidebar = (props) => {
     });
 
     return (
-      <section className="accordion card bg-light p-3 mb-5" id="categoryListAccordion">
+      <section className="accordion card p-3 mb-5" id="categoryListAccordion">
         <p className="h5 mb-3">Categories</p>
         {categoryList}
       </section>

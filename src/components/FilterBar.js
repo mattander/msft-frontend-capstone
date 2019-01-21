@@ -1,21 +1,11 @@
 import React from 'react'
+import { toTitleCase } from '../constants/constants';
 
 const FilterBar = (props) => {
-  const toTitleCase = (str, joiner) => {
-    if (str.indexOf('-') !== -1) {
-      return str.toLowerCase().split('-').map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-    } else {
-      return str.toLowerCase().split(' ').map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-    }
-  }
   const subcat = toTitleCase(props.categoryInfo.subcategory, ' ');
   return (
     <div className="container-fluid">
-
-
       <div>Showing {props.filteredItemsList.length} of {props.itemsList.length} items in {subcat}</div>
-
-
       <form className="my-3 form-inline">
         <div className="form-group form-check">
           <input onChange={(e) => props.onFilterChange({

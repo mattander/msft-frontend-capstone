@@ -4,7 +4,8 @@ import Carousel from '../components/Carousel';
 const mapStateToProps = state => {
   return {
     data: state.shopData[0],
-    loaded: state.loaded
+    loaded: state.loaded,
+    productList: state.productList
   };
 };
 

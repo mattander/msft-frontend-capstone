@@ -6,6 +6,7 @@ import axios from 'axios';
 import { shopDataURL } from './env/env';
 import getData from './actions/getData';
 import loaded from './actions/loaded';
+import sortData from './actions/sortData'
 import { store } from './index';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
@@ -25,6 +26,7 @@ class App extends Component {
     axios.get(shopDataURL)
       .then(response => {
         store.dispatch(getData(response.data));
+        store.dispatch(sortData(response.data));
       })
       .then(data => {
         store.dispatch(loaded(true));
@@ -39,6 +41,7 @@ class App extends Component {
         <div id="bodyContent" className="container mt-3 mb-5">
           <Switch>
             <Route path={'/shop/:category/:subcategory/:product'} component={Product} />
+            <Route path={'/product'} component={Product} />
             <Route path={'/shop/:category/:subcategory'} component={Shop} />
             <Route path={'/shop/:category'} component={Shop} />
             {/* rubric70 - clicking shop all takes user to shopping page */}

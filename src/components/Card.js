@@ -40,7 +40,7 @@ const Card = (props) => {
       })
     }
     return (
-      <Link to={"/shop/" + props.categoryInfo.category.toLowerCase().split(' ').join('-') + "/" + props.categoryInfo.subcategory.toLowerCase().split(' ').join('-') + "/" + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card product-card">
+      <Link to={"/product?name=" + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card product-card">
         <div className="card-body">
           <img src={props.itemData.imagelink} alt={props.itemData.name} className="card-img-top" />
           <h5 className="card-title">{props.itemData.name}</h5>

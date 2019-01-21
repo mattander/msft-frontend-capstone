@@ -11,7 +11,10 @@ import { HashRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 
-export const store = createStore(reducer);
+export const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 const root = document.getElementById('root');
 
 ReactDOM.render(

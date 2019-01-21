@@ -1,10 +1,23 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="bg-primary">
       <div className="container">
-        <h2>Footer</h2>
+      <nav>
+        <ul className="nav">
+          <li className="nav-item">
+            <NavLink to="/" className="nav-link">Home</NavLink>
+          </li>
+          <li className="nav-item">
+          <NavLink to="/" className="nav-link">About</NavLink>
+          </li>
+          <li className="nav-item">
+          <NavLink to="/" className="nav-link">Contact</NavLink>
+          </li>
+        </ul>
+      </nav>
       </div>
     </footer>
   )

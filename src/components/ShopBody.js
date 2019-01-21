@@ -2,17 +2,9 @@ import React from 'react';
 import Card from './Card';
 import FilterBarContainer from '../containers/FilterBarContainer';
 import { Redirect } from 'react-router-dom';
+import { toTitleCase } from '../constants/constants';
 
 const ShopBody = (props) => {
-  const toTitleCase = (str, joiner) => {
-    if (str.indexOf('-') !== -1) {
-      return str.toLowerCase().split('-').map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-    } else {
-      return str.toLowerCase().split(' ').map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-    }
-  }
-
-
   if (props.loaded) {
     if (props.categoryInfo.subcategory) {
       const cat = toTitleCase(props.categoryInfo.category, ' ');

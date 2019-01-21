@@ -1,30 +1,16 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
 import AddItemToCartForm from './AddItemToCartForm';
 import NotFound from './404NotFound';
+import { toTitleCase } from '../constants/constants';
 
 const Product = (props) => {
     // if data is loaded, load the component, otherwise say loading
     if (props.loaded) {
-        const toTitleCase = (str, joiner = ' ', seperator = '-') => {
-            // if sep is dashes and there are spaces, make them dashes
-            if (seperator === '-' && str.indexOf(' ')) {
-                const strCopy = str.split(' ').join('-')
-                return strCopy.toLowerCase().split(seperator).map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-            } else if (seperator === ' ' && str.indexOf('-')) {
-            // if sep is spaces and there are dashes, make them spaces
-                const strCopy = str.split('-').join(' ')
-                return strCopy.toLowerCase().split(seperator).map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-            } else {
-                return str.toLowerCase().split(seperator).map(item => { if (item.indexOf('and') === -1) { return item[0].toUpperCase() + item.slice(1, item.length) } else { return item } }).join(joiner);
-            }
-          }
-
         // if the item exists show all the item information, if it doesn't exist, show the 404 page
-        if (props.data.filter(item => item.category === props.categoryName)[0].subcategories.filter(item => item.name === props.subcategoryName)[0].items.filter(item => toTitleCase(item.name) === props.productName).length !== 0) {
+        if (props.productList.filter(item => toTitleCase(item.name,'-',' ','lower') === props.productName).length !== 0) {
 
-            const item = props.data.filter(item => item.category === props.categoryName)[0].subcategories.filter(item => item.name === props.subcategoryName)[0].items.filter(item => toTitleCase(item.name) === props.productName)[0];
+            const item = props.productList.filter(item => toTitleCase(item.name,'-',' ','lower') === props.productName)[0];
 
             let rating = [];
 
@@ -54,8 +40,7 @@ const Product = (props) => {
                             <AddItemToCartForm onCartAddItem={props.onCartAddItem} item={item} />
 
                             {/* rubric43 - user should see a button labeled back */}
-                            {/* I changed the text for the button to be more descriptive for better UX */}
-                            <Link className="btn btn-outline-primary mt-5" to={"/shop/" + props.match.params.category + "/" + props.match.params.subcategory}>Back to {props.subcategoryName}</Link>
+                            <button className="btn btn-outline-primary mt-3" onClick={(e) => props.history.goBack()}>Back</button>
                         </div>
                     </div>
                 </section>

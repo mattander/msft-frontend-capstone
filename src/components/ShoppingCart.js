@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import ShippingDetailsForm from './ShippingDetailsForm';
 
 const ShoppingCart = (props) => {
-  console.log(props.cart);
   let cartTotal = 0;
   props.cart.forEach(item => {
     cartTotal = cartTotal + item.quantity;
