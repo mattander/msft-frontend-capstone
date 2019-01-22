@@ -32,7 +32,6 @@ const Card = (props) => {
     //have to write a handler to override the Link behaviour due to a react router bug. When you click an element with an onClick this is the child of a <Link/>, the Link's onClick fires at the same time. 
 
     const addCartHandler = (e) => {
-      console.log('card', props.itemData);
       e.preventDefault();
       props.onCartAddItem({
         name: props.itemData.name,

@@ -16,14 +16,13 @@ class AddItemToCartForm extends Component {
   }
 
   onSubmit(e) {
-    console.log('product add item form', this.props.item);
     this.props.onCartAddItem({
       name: this.props.item.name,
       quantity: this.state.quantity,
       item: this.props.item
     });
     e.preventDefault();
-  } onSubmit
+  }
 
   render() {
     return (

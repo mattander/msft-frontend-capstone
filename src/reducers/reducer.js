@@ -15,7 +15,6 @@ import {
 const shopData = (state = [], action) => {
   switch (action.type) {
     case GET_DATA:
-      console.log('get data');
       const newState = [...state, action.data];
       return newState;
 
@@ -67,10 +66,10 @@ const cart = (state = [], action) => {
     case CART_ADD_ITEM: {
       if (action.data.quantity <= 0) {
         // if the quantity is 0
-        return state;
+        return [...state];
       } else {
         // if the quantity is more than 0
-        const match = state.findIndex(item => {
+        const match = [...state].findIndex(item => {
           return item.name === action.data.name;
         });
 
@@ -105,7 +104,6 @@ const cart = (state = [], action) => {
 const filters = (state = { inStockOnly: false, sortBy: 'lowToHigh' }, action) => {
   switch (action.type) {
     case UPDATE_FILTERS:
-      console.log('update filters');
       const newState = {
         [action.data.filter]: action.data.state
       }

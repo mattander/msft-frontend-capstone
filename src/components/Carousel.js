@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toTitleCase } from '../constants/constants';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Carousel extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Carousel extends Component {
     if (!this.state.paused) {
       // if the carousel is not paused, rotate every three seconds
       const carousel = setInterval(() => {
-        if (this.state.currentSlide === document.querySelector('.my-carousel-container').children.length) {
+        if (this.state.currentSlide === document.querySelector('.carousel-slide-container').children.length) {
           // if we're on the last slide
           document.querySelector('.active-item').classList.remove('active-item');
           document.querySelector('#slide-1').classList.add('active-item');
@@ -34,7 +35,7 @@ class Carousel extends Component {
             currentSlide: this.state.currentSlide + 1
           })
         }
-      }, 6000);
+      }, 3000);
 
       this.setState({
         carousel: carousel
@@ -58,7 +59,7 @@ class Carousel extends Component {
       });
 
       const carousel = setInterval(() => {
-        if (this.state.currentSlide === document.querySelector('.my-carousel-container').children.length) {
+        if (this.state.currentSlide === document.querySelector('.carousel-slide-container').children.length) {
           // if we're on the last slide
           document.querySelector('.active-item').classList.remove('active-item');
           document.querySelector('#slide-1').classList.add('active-item');
@@ -73,7 +74,7 @@ class Carousel extends Component {
             currentSlide: this.state.currentSlide + 1
           })
         }
-      }, 6000);
+      }, 3000);
 
       this.setState({
         carousel: carousel
@@ -87,8 +88,9 @@ class Carousel extends Component {
     }
   };
 
+  // rubric07 - Clicking on the right arrow should move the product carousel one slide forward. 
   nextSlide(e) {
-    if (this.state.currentSlide === document.querySelector('.my-carousel-container').children.length) {
+    if (this.state.currentSlide === document.querySelector('.carousel-slide-container').children.length) {
       // if we're on the last slide
       document.querySelector('.active-item').classList.remove('active-item');
       document.querySelector('#slide-1').classList.add('active-item');
@@ -105,13 +107,14 @@ class Carousel extends Component {
     }
   }
 
+  // rubric08 - Clicking on the left arrow should move the product carousel one slide back
   prevSlide(e) {
     if (this.state.currentSlide === 1) {
       // if we're on the first slide
       document.querySelector('.active-item').classList.remove('active-item');
-      document.querySelector('#slide-' + document.querySelector('.my-carousel-container').children.length).classList.add('active-item');
+      document.querySelector('#slide-' + document.querySelector('.carousel-slide-container').children.length).classList.add('active-item');
       this.setState({
-        currentSlide: (document.querySelector('.my-carousel-container').children.length)
+        currentSlide: (document.querySelector('.carousel-slide-container').children.length)
       })
     } else {
       // otherwise, go to the prev slide
@@ -127,59 +130,77 @@ class Carousel extends Component {
     if (this.props.loaded) {
       return (
         <div>
-          <div className="my-carousel-container">
+          <div className="carousel-container">
+            {/* rubric02 - The user should see a button that resembles a left arrow key to
+the left of the product carousel */}
+            <button title="Previous slide" onClick={this.prevSlide}><FontAwesomeIcon icon="chevron-left" /></button>
             {/* Carousel only has a single item for each slide for usability. Too hard to read multiple items on a small viewport. Stacking doesn't look great, may as well make a new slide. */}
-            <div id="slide-1" className="my-carousel-item active-item">
-              <div className="row">
-                <div className="col-lg-6 d-flex justify-content-center">
-                  <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')}><img src={this.props.productList[0].imagelink} alt="..." /></Link>
+            <section className="carousel-slide-container">
+              {/* rubric01 - The user should see a product carousel that contains at least 3
+slides of products, with each slide having between 1 and 4
+product images.  */}
+              <article id="slide-1" className="carousel-items active-item">
+                <div className="row">
+                  <div className="col-lg-6 d-flex justify-content-center">
+                    {/* rubric09 - If the user clicks on a product image, they should be taken to a
+product page that is populated with the details of the clicked
+product  */}
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')}><img src={this.props.productList[0].imagelink} alt="..." /></Link>
+                  </div>
+                  <div className="col-lg-6 carousel-text">
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')} ><p><span className="lead">This is our best special yet!</span> <br />This high-quality baby bib will make your child really feel the love. Come in and buy one today.
+            <br /><strong>Only ${this.props.productList[0].price}</strong></p></Link>
+                  </div>
                 </div>
-                <div className="col-lg-6 carousel-text">
-                  <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')} ><p><span className="lead">This is our best special yet!</span> <br />This high-quality baby bib will make your child really feel the love. Come in and buy one today.
-                  <br /><strong>Only ${this.props.productList[0].price}</strong></p></Link>
-                </div>
-              </div>
-            </div>
+              </article>
 
-            <div id="slide-2" className="my-carousel-item">
-              <div className="row">
-                <div className="col-lg-6 d-flex justify-content-center">
-                  <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')}><img src={this.props.productList[64].imagelink} alt="..." /></Link>
+              <article id="slide-2" className="carousel-items">
+                <div className="row">
+                  <div className="col-lg-6 d-flex justify-content-center">
+                    {/* rubric09 - If the user clicks on a product image, they should be taken to a
+product page that is populated with the details of the clicked
+product  */}
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')}><img src={this.props.productList[64].imagelink} alt="..." /></Link>
+                  </div>
+                  <div className="col-lg-6 carousel-text">
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')} ><p><span className="lead">It's milk.</span> <br />Okay, do I really have to sell you on milk? <br />Cookies. Cereal. Nice cold glass. Whatever. It's milk.
+            <br /><strong>Only ${this.props.productList[64].price}</strong></p></Link>
+                  </div>
                 </div>
-                <div className="col-lg-6 carousel-text">
-                  <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')} ><p><span className="lead">It's milk.</span> <br />Okay, do I really have to sell you on milk? <br />Cookies. Cereal. Nice cold glass. Whatever. It's milk.
-              <br /><strong>Only ${this.props.productList[64].price}</strong></p></Link>
-                </div>
-              </div>
-            </div>
+              </article>
 
-            <div id="slide-3" className="my-carousel-item">
-              <div className="row">
-                <div className="col-xs-12 col-lg-6 d-flex justify-content-center">
-                  <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')} ><img src={this.props.productList[92].imagelink} alt="..." /></Link>
-                </div>
-                <div className="col-xs-12 col-lg-6 carousel-text">
+              <article id="slide-3" className="carousel-items">
+                <div className="row">
+                  <div className="col-xs-12 col-lg-6 d-flex justify-content-center">
+                    {/* rubric09 - If the user clicks on a product image, they should be taken to a
+product page that is populated with the details of the clicked
+product  */}
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')} ><img src={this.props.productList[92].imagelink} alt="..." /></Link>
+                  </div>
+                  <div className="col-xs-12 col-lg-6 carousel-text">
 
-                  <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')}>
-                    <p><span className="lead">Lean, green, and delicious!</span> <br />Don't be afraid of these beautiful green vegetables. <br /><span className="text-muted">(Jim, I swear to god if you keep over-ordering these, I'll fire you).</span>
-                      <br /><strong>Only ${this.props.productList[92].price}</strong></p>
-                  </Link>
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')}>
+                      <p><span className="lead">Lean, green, and delicious!</span> <br />Don't be afraid of these beautiful green vegetables. <br /><span className="text-muted">(Jim, I swear to god if you keep over-ordering these, I'll fire you).</span>
+                        <br /><strong>Only ${this.props.productList[92].price}</strong></p>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </article>
+            </section>
+            {/* rubric03 - The user should see a button that resembles a right arrow key to
+the right of the product carousel */}
+            <button title="Next slide" onClick={this.nextSlide}><FontAwesomeIcon icon="chevron-right" /></button>
           </div>
 
 
           <div className="d-flex justify-content-end mt-3">
+            {/* rubric06 - The user should see a toggle switch labeled “Toggle Slide Show”  */}
             <div className="form-group form-check">
               <input onChange={this.handleChange} type="checkbox" className="form-check-input" id="pauseSlideShow" />
-              <label className="form-check-label" htmlFor="pauseSlideShow">Pause slideshow</label>
+              <label className="form-check-label" htmlFor="pauseSlideShow">Toggle slideshow</label>
             </div>
           </div>
-          <div className="d-flex justify-content-center mt-3">
-            <button onClick={this.prevSlide} className="mr-2 btn btn-outline-primary">Prev</button> <button onClick={this.nextSlide} className="ml-2 btn btn-outline-primary">Next</button>
-          </div>
-        </div>
+        </div >
       );
     } else {
       return (

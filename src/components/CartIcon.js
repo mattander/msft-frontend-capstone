@@ -8,6 +8,7 @@ const CartIcon = (props) => {
     cartTotal = cartTotal + item.quantity;
   });
   return (
+    // rubric71 - clicking cart takes user to cart
     <NavLink activeClassName="active" className="nav-link" to="/shopping-cart">
       <FontAwesomeIcon icon="shopping-cart" /> Cart {parseInt(cartTotal)}
     </NavLink>

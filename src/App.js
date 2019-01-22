@@ -14,6 +14,8 @@ import Home from './components/Home';
 import Shop from './components/Shop';
 import ShoppingCart from './containers/ShoppingCartContainer';
 import Product from './containers/ProductContainer'
+import Contact from './components/Contact';
+import About from './components/About';
 import NotFound from './components/404NotFound';
 import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -40,17 +42,19 @@ class App extends Component {
         <Header />
         <div id="bodyContent" className="container mt-3 mb-5">
           <Switch>
-            <Route path={'/shop/:category/:subcategory/:product'} component={Product} />
             <Route path={'/product'} component={Product} />
             <Route path={'/shop/:category/:subcategory'} component={Shop} />
             <Route path={'/shop/:category'} component={Shop} />
             {/* rubric70 - clicking shop all takes user to shopping page */}
             <Route exact path={'/shop'} component={Shop} />
-            {/* rubric71 - clicking cart takes user to cart */}
             {/* rubric56 - url #/cart will take you to the cart */}
             <Route exact path={'/shopping-cart'} component={ShoppingCart} />
-            {/* rubric69 - clicking home takes user to home page */}
-            <Route exact path={'/'} component={Home} />
+            {/* rubric62 - The contact page is accessible at http://localhost:8080/#/contact */}
+            <Route exact path={'/contact'} component={Contact} />
+            {/* rubric64 - The about page is accessible at http://localhost:8080/#/about  */}
+            <Route exact path={'/about'} component={About} />
+            {/* rubric13 - The home page is accessible at http://localhost:8080/#  */}
+            <Route exact path={''} component={Home} />
             <Route component={NotFound} />
           </Switch>
         </div>

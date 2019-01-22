@@ -9,10 +9,26 @@ body {
   text-align: center;
 }
 
-.my-carousel-container {
+.carousel-container {
+  display:flex;
+  flex-flow: row nowrap;
+  align-items:center;
+
+  button {
+    background: none;
+    border:none;
+    cursor: pointer;
+    font-size: 2rem;
+    &:hover {
+      color: darkgrey;
+    }
+  }
+}
+
+.carousel-slide-container {
   width: 100%;
 
-  .my-carousel-item {
+  .carousel-items {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -27,6 +43,8 @@ body {
     }
   }
 
+  /* rubric11 - Whenever the product carousel changes it slide, it should do in
+an animated way */
   .active-item {
     opacity: 1;
     display: flex;
@@ -47,6 +65,7 @@ body {
     }
   }
 }
+
 
 /* CATEGORY SIDEBAR MODULE */
 #categoryListAccordion {
