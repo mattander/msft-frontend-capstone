@@ -1,8 +1,3 @@
 To do:
-- Add media queries to size the cards better. Should be two to a column on large displays and one column in smaller. - DONE!
-- Finish setting up logic to grab category and subcategory from route data - DONE!
 - add pagination if I have time, or remove the logic for it that I put in cards
-- finish filters - DONE!
-- add product page IN PROGRESS
-- add cartRemoveItem and cartUpdateItem
-- add redirect to 404 when category or subcat or product doesn't exist, maybe only match route if the route items check out against the item data list?
+- add sort alpha, rating to the existing sort methods
