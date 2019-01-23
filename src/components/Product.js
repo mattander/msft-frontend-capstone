@@ -8,9 +8,9 @@ const Product = (props) => {
     // if data is loaded, load the component, otherwise say loading
     if (props.loaded) {
         // if the item exists show all the item information, if it doesn't exist, show the 404 page
-        if (props.productList.filter(item => toTitleCase(item.name,'-',' ','lower') === props.productName).length !== 0) {
+        if (props.productList.filter(item => toTitleCase(item.name, '-', ' ', 'lower') === props.productName).length !== 0) {
 
-            const item = props.productList.filter(item => toTitleCase(item.name,'-',' ','lower') === props.productName)[0];
+            const item = props.productList.filter(item => toTitleCase(item.name, '-', ' ', 'lower') === props.productName)[0];
 
             let rating = [];
 
@@ -19,7 +19,7 @@ const Product = (props) => {
             }
 
             return (
-                <section>
+                <section className="container mt-3">
                     <div className="row">
                         <div className="col-md-5 col-lg-3">
                             {/* rubric36 - the user should see an image of the selected product */}
@@ -50,11 +50,13 @@ const Product = (props) => {
         }
     } else {
         return (
-            <div className="d-flex justify-content-center">
-                <div className="spinner-border text-primary" role="status">
-                    <span className="sr-only">Loading...</span>
+            <section className="container mt-3">
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-primary" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
                 </div>
-            </div>
+            </section>
         )
     }
 }

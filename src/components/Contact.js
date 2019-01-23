@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 
 const Contact = () => {
   return (
-    <section>
+    <section className="container mt-3">
       <div className="row">
         <div className="col-md-10 col-lg-9">
           {/* rubric58 - The user should see description that shows an email and phone

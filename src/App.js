@@ -40,7 +40,7 @@ class App extends Component {
       <div className="app">
         {/* rubric68 - header always at the top */}
         <Header />
-        <div id="bodyContent" className="container mt-3 mb-5">
+        <div id="bodyContent" className="mb-5">
           <Switch>
             <Route path={'/product'} component={Product} />
             <Route path={'/shop/:category/:subcategory'} component={Shop} />

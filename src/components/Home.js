@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div>
+    <section className="container mt-3">
       {/* rubric04 - The user should see some text welcoming them to the website */}
       <div className="welcome-paragraph mb-4">
         <p className="lead">Welcome to our new online store! We hope you find what you're looking for</p>
@@ -14,7 +14,7 @@ taken to the shopping page  */}
         <Link className="btn btn-primary" to="/shop">Shop all</Link>
       </div>
       <CarouselContainer />
-    </div>
+    </section>
   );
 };
 

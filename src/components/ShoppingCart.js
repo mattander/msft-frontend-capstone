@@ -9,13 +9,14 @@ const ShoppingCart = (props) => {
   });
   if (cartTotal === 0) {
     return (
-      <div>
-        <section className="row mb-4">
-          <article className="col-xs-12 col-md-6 col-lg-8">
+      <section className="container mt-3">
+        <div className="row mb-4">
+          <article className="col-xs-12 col-md-7 col-lg-8">
             <h2>Cart Items</h2>
             <p>There's nothing in your cart. Better get shopping!</p>
+            <Link className="btn btn-primary" to="/shop">Continue shopping</Link>
           </article>
-          <article className="col-xs-12 col-md-6 col-lg-4">
+          <article className="col-xs-12 col-md-5 col-lg-4">
             <h2>Cart Summary</h2>
             <p>There's nothing in your cart.</p>
             <p className="border-bottom border-muted d-flex justify-content-between"><strong>Subtotal:</strong><span className="text-muted">$0</span></p>
@@ -28,9 +29,8 @@ const ShoppingCart = (props) => {
             <h4 className="mt-3">Enter your shipping details</h4>
             <ShippingDetailsForm disabled={true} total={0} />
           </article>
-        </section>
-        <Link className="btn btn-primary" to="/shop">Start shopping</Link>
-      </div>
+        </div>
+      </section>
     )
   } else {
     const items = props.cart.map((item, index) => {
@@ -64,14 +64,16 @@ const ShoppingCart = (props) => {
     const total = parseFloat(subtotal + shipping + tax);
 
     return (
-      <div>
-        <section className="row mb-4">
+      <section className="container mt-3">
+        <div className="row mb-4">
           <article className="col-xs-12 col-md-6">
             <h2>Cart Items</h2>
             <div className="card my-3">
               {items}
             </div>
+            <Link className="btn btn-primary" to="/shop">Continue shopping</Link>
           </article>
+
           <article className="col-xs-12 col-md-6">
             <h2>Cart Summary</h2>
             <p className="border-bottom border-muted d-flex justify-content-between"><strong>Subtotal:</strong><span className="text-muted">${subtotal.toFixed(2)}</span></p>
@@ -83,9 +85,8 @@ const ShoppingCart = (props) => {
             <h4 className="mt-3">Enter your shipping details</h4>
             <ShippingDetailsForm disabled={false} total={total} />
           </article>
-        </section>
-        <Link className="btn btn-primary" to="/shop">Continue shopping</Link>
-      </div>
+        </div>
+      </section>
     )
   }
 }

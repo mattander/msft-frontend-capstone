@@ -4,7 +4,7 @@ import ShopBodyContainer from '../containers/ShopBodyContainer';
 
 const Shop = (props) => {
   return (
-    <div>
+    <section className="container">
       <div className="row mt-4">
         <div className="col-md-3">
           <CategorySidebarContainer />
@@ -13,7 +13,7 @@ const Shop = (props) => {
           <ShopBodyContainer categoryInfo={props.match.params} history={props.history} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
