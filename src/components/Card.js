@@ -45,6 +45,7 @@ const Card = (props) => {
           <img src={props.itemData.imagelink} alt={props.itemData.name} className="card-img-top" />
           <h5 className="card-title">{props.itemData.name}</h5>
           <small>${props.itemData.price.toFixed(2)}</small>
+          <p className="text-muted">Rating: {props.itemData.rating}/5</p>
           <p className="card-text">{props.itemData.description}</p>
           <button onClick={(e) => addCartHandler(e)} className="btn btn-primary">Add to cart</button>
         </div>

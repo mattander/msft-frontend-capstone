@@ -64,6 +64,26 @@ class ShopBody extends Component {
                   }
                 });
                 filteredList = listCopy;
+              } else if (this.props.filters.sortBy === 'ratingHighToLow') {
+                console.log(items[0].rating, items[1].rating)
+                console.log(items[0].rating <= items[1].rating)
+                const listCopy = filteredList.sort((a, b) => {
+                  if (parseInt(b.rating) <= parseInt(a.rating)) {
+                    return -1;
+                  } else {
+                    return 1;
+                  }
+                });
+                filteredList = listCopy;
+              } else if (this.props.filters.sortBy === 'ratingLowToHigh') {
+                const listCopy = filteredList.sort((a, b) => {
+                  if (parseInt(a.rating) <= parseInt(b.rating)) {
+                    return -1;
+                  } else {
+                    return 1;
+                  }
+                });
+                filteredList = listCopy;
               }
             }
 

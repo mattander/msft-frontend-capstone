@@ -25,10 +25,12 @@ const FilterBar = (props) => {
             <option value="highToLow">Price (high to low)</option>
             <option value="aToZ">Alpha (a to z)</option>
             <option value="zToA">Reverse alpha (z to a)</option>
+            <option value="ratingHighToLow">Rating (high to low)</option>
+            <option value="ratingLowToHigh">Rating (low to high)</option>
           </select>
         </div>
         <div className="ml-3 form-group">
-          <label className="sr-only" htmlFor="showNumItems">Sort items:</label>
+          <label htmlFor="showNumItems">Items per page:</label>
           <select onChange={(e) => props.onFilterChange({
             filter: 'showNumItems',
             state: parseInt(e.target.value)
