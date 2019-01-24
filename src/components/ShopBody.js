@@ -14,18 +14,15 @@ class ShopBody extends Component {
   }
 
   goToPage(e) {
-    console.log(this.state.page)
     this.setState({ page: parseInt(e.target.attributes['data-page'].value) });
   }
 
   prevPage(e) {
-    console.log(this.state.page)
     const currentPage = this.state.page;
     this.setState({ page: currentPage - 1 });
   }
 
   nextPage(e) {
-    console.log(this.state.page)
     const currentPage = this.state.page;
     this.setState({ page: currentPage + 1 });
   }
@@ -42,13 +39,30 @@ class ShopBody extends Component {
 
           const filterItems = (items) => {
             let filteredList = items;
-
             if (this.props.filters.sortBy) {
               if (this.props.filters.sortBy === 'lowToHigh') {
                 const listCopy = filteredList.sort((a, b) => a.price - b.price);
                 filteredList = listCopy;
-              } else {
+              } else if (this.props.filters.sortBy === 'highToLow') {
                 const listCopy = filteredList.sort((a, b) => b.price - a.price);
+                filteredList = listCopy;
+              } else if (this.props.filters.sortBy === 'aToZ') {
+                const listCopy = filteredList.sort((a, b) => {
+                  if (a.name.toString() < b.name.toString()) {
+                    return -1;
+                  } else {
+                    return 1;
+                  }
+                });
+                filteredList = listCopy;
+              } else if (this.props.filters.sortBy === 'zToA') {
+                const listCopy = filteredList.sort((a, b) => {
+                  if (a.name.toString() > b.name.toString()) {
+                    return -1;
+                  } else {
+                    return 1;
+                  }
+                });
                 filteredList = listCopy;
               }
             }
@@ -73,20 +87,30 @@ class ShopBody extends Component {
                 paginatedItemsList.push(list.slice(startIndex, stopIndex));
               }
               return paginatedItemsList;
+            } else {
+              return list;
             }
           }
 
-          const paginatedItems = paginateItems(filteredItems, 6).map((item, index) => {
-            return item.map((item, index) => {
+          let paginatedItems = [];
+
+          if (filteredItems.length > this.props.filters.showNumItems) {
+            paginatedItems = paginateItems(filteredItems, this.props.filters.showNumItems).map((item, index) => {
+              return item.map((item, index) => {
+                return (
+                  <Card onCartAddItem={this.props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" categoryInfo={this.props.categoryInfo} history={this.props.history} />
+                )
+              })
+            });
+          } else {
+            paginatedItems = filteredItems.map((item, index) => {
               return (
                 <Card onCartAddItem={this.props.onCartAddItem} key={'product-' + item.name} itemData={item} itemIndex={index} itemType="product" categoryInfo={this.props.categoryInfo} history={this.props.history} />
-              )
+              );
             })
-          });
+          };
 
-          const paginationButtons = paginateItems(filteredItems, 6).map((item, index) => {
-            console.log('state', this.state.page, index)
-            console.log('equality', parseInt(this.state.page) === parseInt(index));
+          const paginationButtons = paginateItems(filteredItems, this.props.filters.showNumItems).map((item, index) => {
             return <li key={'page' + index} className={this.state.page === index ? "page-item active test" : "page-item no"}><button data-page={index} onClick={(e) => this.goToPage(e)} className="page-link">{index + 1}</button></li>
           })
 
@@ -102,15 +126,15 @@ class ShopBody extends Component {
               <section id="shopBodyContent" className="container-fluid">
                 <FilterBarContainer itemsList={itemsList} filteredItemsList={filteredItems} categoryInfo={this.props.categoryInfo} />
                 <div className="card-container">
-                  {paginatedItems[this.state.page]}
+                  {filteredItems.length > this.props.filters.showNumItems ? paginatedItems[this.state.page] : paginatedItems}
                 </div>
-                <nav className="d-flex justify-content-center">
+                {filteredItems.length > this.props.showNumItems ? <nav className="d-flex justify-content-center">
                   <ul className="pagination">
                     {this.state.page === 0 ? <li className="page-item disabled"><button className="page-link" onClick={(e) => this.prevPage(e)}><FontAwesomeIcon icon="chevron-left" /> Prev</button></li> : <li className="page-item"><button className="page-link" onClick={(e) => this.prevPage(e)}><FontAwesomeIcon icon="chevron-left" /> Prev</button></li>}
                     {paginationButtons}
-                    {this.state.page === paginateItems(filteredItems, 6).length - 1 ? <li className="page-item disabled"><button className="page-link" onClick={(e) => this.nextPage(e)}>Next <FontAwesomeIcon icon="chevron-right" /></button></li> : <li className="page-item"><button className="page-link" onClick={(e) => this.nextPage(e)}>Next <FontAwesomeIcon icon="chevron-right" /></button></li>}
+                    {this.state.page === paginateItems(filteredItems, this.props.filters.showNumItems).length - 1 ? <li className="page-item disabled"><button className="page-link" onClick={(e) => this.nextPage(e)}>Next <FontAwesomeIcon icon="chevron-right" /></button></li> : <li className="page-item"><button className="page-link" onClick={(e) => this.nextPage(e)}>Next <FontAwesomeIcon icon="chevron-right" /></button></li>}
                   </ul>
-                </nav>
+                </nav> : null}
               </section>
             );
           }

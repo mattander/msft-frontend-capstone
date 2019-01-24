@@ -101,7 +101,7 @@ const cart = (state = [], action) => {
   }
 }
 
-const filters = (state = { inStockOnly: false, sortBy: 'lowToHigh' }, action) => {
+const filters = (state = { inStockOnly: false, sortBy: 'lowToHigh', showNumItems: 6 }, action) => {
   switch (action.type) {
     case UPDATE_FILTERS:
       const newState = {

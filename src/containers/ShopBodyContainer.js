@@ -4,6 +4,7 @@ import cartAddItem from '../actions/cartAddItem';
 import { toTitleCase } from '../constants/constants';
 
 const mapStateToProps = (state, ownProps) => {
+
   return {
     data: state.shopData[0],
     loaded: state.loaded,

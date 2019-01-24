@@ -23,6 +23,19 @@ const FilterBar = (props) => {
           })} className="form-control custom-select custom-select-sm ml-2" id="itemSort" defaultValue="lowToHigh">
             <option value="lowToHigh">Price (low to high)</option>
             <option value="highToLow">Price (high to low)</option>
+            <option value="aToZ">Alpha (a to z)</option>
+            <option value="zToA">Reverse alpha (z to a)</option>
+          </select>
+        </div>
+        <div className="ml-3 form-group">
+          <label className="sr-only" htmlFor="showNumItems">Sort items:</label>
+          <select onChange={(e) => props.onFilterChange({
+            filter: 'showNumItems',
+            state: parseInt(e.target.value)
+          })} className="form-control custom-select custom-select-sm ml-2" id="showNumItems" defaultValue="6">
+            <option value="6">6</option>
+            <option value="10">10</option>
+            <option value="14">14</option>
           </select>
         </div>
       </form>
