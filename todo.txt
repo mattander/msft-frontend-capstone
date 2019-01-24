@@ -1,3 +1,0 @@
-To do:
-- add pagination if I have time, or remove the logic for it that I put in cards
-- add sort alpha, rating to the existing sort methods
