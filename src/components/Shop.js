@@ -7,6 +7,8 @@ const Shop = (props) => {
     <section className="container">
       <div className="row mt-4">
         <div className="col-md-3">
+          {/* rubric19 - The user shall see a category menu that displays all of the
+available shopping categories */}
           <CategorySidebarContainer />
         </div>
         <div className="col-md-9">

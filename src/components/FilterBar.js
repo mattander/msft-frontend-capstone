@@ -1,26 +1,36 @@
-import React from 'react'
-import { toTitleCase } from '../constants/constants';
+import React from 'react';
 
 const FilterBar = (props) => {
-  const subcat = toTitleCase(props.categoryInfo.subcategory, ' ');
   return (
     <div className="container-fluid">
-      <div>Showing {props.filteredItemsList.length} of {props.itemsList.length} items in {subcat}</div>
+      {/* rubric15 - The user shall see a section in the controls bar that displays the
+selected category name  */}
+      {/* rubric16 - The user shall see a section in the controls bar that displays the
+number of items shown out of the total number of items in the
+selected category */}
+      {/* rubric27 - Clicking on a subcategory should change the name of the selected
+category in the controls bar -- it's pulled from the route */}
+      <div>Showing {props.filteredItemsList.length} of {props.itemsList.length} items in Category: {props.subcategory}</div>
       <form className="my-3 form-inline">
         <div className="form-group form-check">
+          {/* rubric17 - The user shall see a toggle switch labeled “In Stock Only” in the
+controls bar */}
           <input onChange={(e) => props.onFilterChange({
             filter: 'inStockOnly',
             state: e.target.checked
           })} type="checkbox" className="form-check-input" id="exampleCheck1" />
           <label className="form-check-label" htmlFor="exampleCheck1">Show in-stock only&nbsp;<span className="text-muted">({props.itemsList.filter(item => item.stock > 0).length})</span></label>
         </div>
-
+        {/* rubric18 - The user shall see a dropdown list labeled “Sort By” that has the
+following options: (None, Price, Alphabetical, Rating) in the
+controls bar */}
         <div className="ml-3 form-group">
           <label className="sr-only" htmlFor="itemSort">Sort items:</label>
           <select onChange={(e) => props.onFilterChange({
             filter: 'sortBy',
             state: e.target.value
-          })} className="form-control custom-select custom-select-sm ml-2" id="itemSort" defaultValue="lowToHigh">
+          })} className="form-control custom-select custom-select-sm ml-2" id="itemSort" defaultValue="none">
+            <option value="none">None</option>
             <option value="lowToHigh">Price (low to high)</option>
             <option value="highToLow">Price (high to low)</option>
             <option value="aToZ">Alpha (a to z)</option>

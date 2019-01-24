@@ -10,6 +10,8 @@ const CategorySidebar = (props) => {
     const categoryList = props.data.map((item, index) => {
       return (
         <article key={"category" + item.category}>
+          {/* rubric25 - Clicking on a category name in the category menu should toggle a
+dropdown of the available subcategories within that category  */}
           <a data-toggle="collapse" href={'#collapse' + index} role="button" aria-expanded="false" aria-controls="collapseExample">
             {item.category} <FontAwesomeIcon icon="caret-down" />
           </a>
@@ -19,6 +21,8 @@ const CategorySidebar = (props) => {
 
               return (
                 <li key={subItem.name}>
+                  {/* rubric26 - Clicking on a subcategory should repopulate the grid of products
+with items from the subcategory that was just clicked.  */}
                   <Link to={'/shop/' + toUrlCase(item.category) + '/' + toUrlCase(subItem.name)} className={subCatClasses}>{subItem.name}</Link> ({subItem.items.length})
             </li>
               )

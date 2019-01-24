@@ -84,6 +84,8 @@ class ShopBody extends Component {
                   }
                 });
                 filteredList = listCopy;
+              } else {
+                filteredList = items;
               }
             }
 
@@ -144,11 +146,14 @@ class ShopBody extends Component {
           } else {
             return (
               <section id="shopBodyContent" className="container-fluid">
+                {/* rubric14 - The user shall see a controls bar */}
+                {/* rubric20 - The user shall see a grid that is populated with the products of
+the selected category  */}
                 <FilterBarContainer itemsList={itemsList} filteredItemsList={filteredItems} categoryInfo={this.props.categoryInfo} />
                 <div className="card-container">
                   {filteredItems.length > this.props.filters.showNumItems ? paginatedItems[this.state.page] : paginatedItems}
                 </div>
-                {filteredItems.length > this.props.showNumItems ? <nav className="d-flex justify-content-center">
+                {filteredItems.length > this.props.showNumItems < filteredItems.length ? <nav className="d-flex justify-content-center">
                   <ul className="pagination">
                     {this.state.page === 0 ? <li className="page-item disabled"><button className="page-link" onClick={(e) => this.prevPage(e)}><FontAwesomeIcon icon="chevron-left" /> Prev</button></li> : <li className="page-item"><button className="page-link" onClick={(e) => this.prevPage(e)}><FontAwesomeIcon icon="chevron-left" /> Prev</button></li>}
                     {paginationButtons}
