@@ -11,7 +11,7 @@ const Home = () => {
         {/* rubric05 - The user should see a button labeled “Shop All”  */}
         {/* rubric12 - If the user clicks on the “Shop All” button, the user should be
 taken to the shopping page  */}
-        <Link className="btn btn-primary" to="/shop">Shop all</Link>
+        <Link className="btn btn-primary" to="/shopping">Shop all</Link>
       </div>
       <CarouselContainer />
     </section>

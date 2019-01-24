@@ -14,7 +14,7 @@ const ShoppingCart = (props) => {
           <article className="col-xs-12 col-md-7 col-lg-8">
             <h2>Cart Items</h2>
             <p>There's nothing in your cart. Better get shopping!</p>
-            <Link className="btn btn-primary" to="/shop">Continue shopping</Link>
+            <Link className="btn btn-primary" to="/shopping">Continue shopping</Link>
           </article>
           <article className="col-xs-12 col-md-5 col-lg-4">
             <h2>Cart Summary</h2>
@@ -71,7 +71,7 @@ const ShoppingCart = (props) => {
             <div className="card my-3">
               {items}
             </div>
-            <Link className="btn btn-primary" to="/shop">Continue shopping</Link>
+            <Link className="btn btn-primary" to="/shopping">Continue shopping</Link>
           </article>
 
           <article className="col-xs-12 col-md-6">

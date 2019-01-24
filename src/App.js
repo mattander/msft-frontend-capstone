@@ -43,10 +43,10 @@ class App extends Component {
         <div id="bodyContent" className="mb-5">
           <Switch>
             <Route path={'/product'} component={Product} />
-            <Route path={'/shop/:category/:subcategory'} component={Shop} />
-            <Route path={'/shop/:category'} component={Shop} />
+            <Route path={'/shopping/:category/:subcategory'} component={Shop} />
+            <Route path={'/shopping/:category'} component={Shop} />
             {/* rubric70 - clicking shop all takes user to shopping page */}
-            <Route exact path={'/shop'} component={Shop} />
+            <Route exact path={'/shopping'} component={Shop} />
             {/* rubric56 - url #/cart will take you to the cart */}
             <Route exact path={'/shopping-cart'} component={ShoppingCart} />
             {/* rubric62 - The contact page is accessible at http://localhost:8080/#/contact */}

@@ -17,7 +17,7 @@ const Header = () => {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 {/* rubric66 - shopping link in header*/}
-                <NavLink activeClassName="active" className="nav-link" to="/shop">Shop all</NavLink>
+                <NavLink activeClassName="active" className="nav-link" to="/shopping">Shop all</NavLink>
               </li>
               <li className="nav-item">
                 {/* rubric67 - cart link in header*/}

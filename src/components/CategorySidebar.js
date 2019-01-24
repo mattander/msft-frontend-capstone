@@ -22,8 +22,8 @@ dropdown of the available subcategories within that category  */}
               return (
                 <li key={subItem.name}>
                   {/* rubric26 - Clicking on a subcategory should repopulate the grid of products
-with items from the subcategory that was just clicked.  */}
-                  <Link to={'/shop/' + toUrlCase(item.category) + '/' + toUrlCase(subItem.name)} className={subCatClasses}>{subItem.name}</Link> ({subItem.items.length})
+with items from the subcategory that was just clicked. changes the route, data is pulled from the route */}
+                  <Link to={'/shopping/' + toUrlCase(item.category) + '/' + toUrlCase(subItem.name)} className={subCatClasses}>{subItem.name}</Link> ({subItem.items.length})
             </li>
               )
             })}

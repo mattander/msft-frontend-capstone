@@ -9,7 +9,7 @@ const Card = (props) => {
       )
     })
     return (
-      <Link to={"/shop/" + props.itemData.category.toLowerCase().split(' ').join('-')} className="card item-card">
+      <Link to={"/shopping/" + props.itemData.category.toLowerCase().split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.category}</h5>
           <p className="card-text">Includes products for:</p>
@@ -21,7 +21,7 @@ const Card = (props) => {
     );
   } else if (props.itemType === 'subCategory') {
     return (
-      <Link to={"/shop/" + props.categoryInfo.category.toLowerCase().split(' ').join('-') + '/' + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card">
+      <Link to={"/shopping/" + props.categoryInfo.category.toLowerCase().split(' ').join('-') + '/' + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card">
         <div className="card-body">
           <h5 className="card-title">{props.itemData.name}</h5>
           <p className="card-text">There are {props.itemData.items.length} items for sale in this section.</p>
