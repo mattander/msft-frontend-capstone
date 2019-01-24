@@ -46,6 +46,8 @@ class App extends Component {
             <Route path={'/shopping/:category/:subcategory'} component={Shop} />
             <Route path={'/shopping/:category'} component={Shop} />
             {/* rubric70 - clicking shop all takes user to shopping page */}
+            {/* rubric34 - The shopping page is accessible at
+http://localhost:8080/#/shopping  */}
             <Route exact path={'/shopping'} component={Shop} />
             {/* rubric56 - url #/cart will take you to the cart */}
             <Route exact path={'/shopping-cart'} component={ShoppingCart} />

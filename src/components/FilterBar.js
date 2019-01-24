@@ -10,11 +10,17 @@ number of items shown out of the total number of items in the
 selected category */}
       {/* rubric27 - Clicking on a subcategory should change the name of the selected
 category in the controls bar -- it's pulled from the route */}
+      {/* rubric28 - The section of the controls bar that displays the number of items
+shown out of the total number of items in the selected category
+should update whenever a new subcategory is selected or
+whenever the “In Stock Only” switch is toggled.  */}
       <div>Showing {props.itemsShown} of {props.itemsList.length} items in Category: {props.subcategory}</div>
       <form className="my-3 form-inline">
         <div className="form-group form-check">
           {/* rubric17 - The user shall see a toggle switch labeled “In Stock Only” in the
 controls bar */}
+          {/* rubric29 - If the “In Stock Only” toggle is checked, only items that are in
+stock should be shown in the products grid.  NOTE: item filtering happens in ShopBodyContainer */}
           <input onChange={(e) => props.onFilterChange({
             filter: 'inStockOnly',
             state: e.target.checked
@@ -26,6 +32,8 @@ following options: (None, Price, Alphabetical, Rating) in the
 controls bar */}
         <div className="ml-3 form-group">
           <label className="sr-only" htmlFor="itemSort">Sort items:</label>
+          {/* rubric33 - Changing the selected sorting method should reorder the
+products in the grid  */}
           <select onChange={(e) => props.onFilterChange({
             filter: 'sortBy',
             state: e.target.value

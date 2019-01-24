@@ -40,6 +40,8 @@ const Card = (props) => {
       })
     }
     return (
+      // rubric31 - If the user clicks on a product image within a grid cell, they should be taken to a product page that is populated with the details of the clicked product
+      // rubric32 - If the user clicks on a product name within a grid cell, they should be taken to a product page that is populated with the details of the clicked product 
       <Link to={"/product?name=" + props.itemData.name.toLowerCase().split(' ').join('-')} className="card item-card product-card">
         <div className="card-body">
           {/* rubric23 - Each grid cell shall have an image of the product displayed  */}
@@ -52,6 +54,8 @@ const Card = (props) => {
           <p className="text-muted">Rating: {props.itemData.rating}/5</p>
           <p className="card-text">{props.itemData.description}</p>
           {/* rubric24 - Each grid cell shall have a button labeled “Add” */}
+          {/* rubric30 - Clicking on the “Add” button inside a grid cell should add 1 unit of
+the associated product to the shopping cart  */}
           <button onClick={(e) => addCartHandler(e)} className="btn btn-primary">Add to cart</button>
         </div>
       </Link>
