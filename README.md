@@ -10,7 +10,7 @@ Then, you can run the app in the local dev server:
 ### npm run start
 
 This page is hosted on github pages. 
-Visit https://mattander.github.io/msft-frontend-capstone/#/](https://mattander.github.io/msft-frontend-capstone/#/) to see the latest build (remember to shift-refresh if you've looked at it before, I didn't add cache busting yet).
+Visit [https://mattander.github.io/msft-frontend-capstone/#/](https://mattander.github.io/msft-frontend-capstone/#/) to see the latest build (remember to shift-refresh if you've looked at it before, I didn't add cache busting yet).
 
 ## Extra features:
 
