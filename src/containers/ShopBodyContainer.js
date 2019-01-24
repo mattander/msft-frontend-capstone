@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ShopBody from '../components/ShopBody';
 import cartAddItem from '../actions/cartAddItem';
+import { toTitleCase } from '../constants/constants';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,7 +10,9 @@ const mapStateToProps = (state, ownProps) => {
     productList: state.productList,
     filters: state.filters,
     categoryInfo: ownProps.categoryInfo,
-    history: ownProps.history
+    history: ownProps.history,
+    category: ownProps.categoryInfo.category ? toTitleCase(ownProps.categoryInfo.category, ' ', '-') : null,
+    subcategory: ownProps.categoryInfo.subcategory ? toTitleCase(ownProps.categoryInfo.subcategory, ' ', '-') : null
   };
 };
 
