@@ -14,7 +14,7 @@ const ShoppingCart = (props) => {
           <article className="col-xs-12 col-md-7 col-lg-8">
             <h2>Cart Items</h2>
             <p>There's nothing in your cart. Better get shopping!</p>
-            <Link className="btn btn-primary" to="/shopping">Continue shopping</Link>
+            <Link className="btn btn-primary mb-5" to="/shopping">Continue shopping</Link>
           </article>
           <article className="col-xs-12 col-md-5 col-lg-4">
             <h2>Cart Summary</h2>
@@ -36,24 +36,30 @@ const ShoppingCart = (props) => {
     const items = props.cart.map((item, index) => {
       return (
         <div className="card-body shopping-cart__item" key={item + index}>
-          <div className="d-flex align-items-center mb-2">
-            <h5 className="mb-0">{item.name}</h5>
-
-            {/* rubric54 - cost updates when items are updated or removed (event call) */}
-            <button onClick={(e) => {
-              props.cartRemoveItem(item)
-            }} className="ml-3 btn btn-outline-danger btn-sm">Remove from cart</button>
+          <div className="row">
+            {/* rubric47 - The user should a table displaying the product image, name, unit price, quantity as an input field, total cost, and a remove button for each product in the shopping cart. */}
+            <div className="col-xs-4">
+              <img className="cart-item-image" src={item.item.imagelink} alt={item.name} />
+            </div>
+            <div className="col-xs-8">
+              <h5>{item.name}</h5>
+              {/* rubric54 - cost updates when items are updated or removed (event call) */}
+              <button onClick={(e) => {
+                props.cartRemoveItem(item)
+              }} className="my-2 btn btn-outline-danger btn-sm">Remove from cart</button>
+              <p>Total: ${(item.item.price * item.quantity).toFixed(2)}</p>
+              <p>Per item: ${item.item.price.toFixed(2)}</p>
+              <form className="form-inline">
+                {/* rubric53 - cost updates when items are updated or removed (event call) */}
+                <input className="form-control" onChange={(e) => {
+                  props.cartUpdateItem({
+                    name: item.name,
+                    quantity: parseInt(e.target.value)
+                  });
+                }} id="itemQuantity" type="number" min="1" max={item.item.stock} defaultValue={item.quantity} /> <em className="ml-3 text-muted">({item.item.stock} currently in stock)</em>
+              </form>
+            </div>
           </div>
-          <p>${item.item.price.toFixed(2)}</p>
-          <form className="form-inline">
-            {/* rubric53 - cost updates when items are updated or removed (event call) */}
-            <input className="form-control" onChange={(e) => {
-              props.cartUpdateItem({
-                name: item.name,
-                quantity: parseInt(e.target.value)
-              });
-            }} id="itemQuantity" type="number" min="1" max={item.item.stock} defaultValue={item.quantity} /> <em className="ml-3 text-muted">({item.item.stock} currently in stock)</em>
-          </form>
         </div>
       )
     });

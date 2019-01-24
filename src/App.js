@@ -42,6 +42,7 @@ class App extends Component {
         <Header />
         <div id="bodyContent" className="mb-5">
           <Switch>
+            {/* rubric46 - The product page is accessible at http://localhost:8080/#/product?name=productname */}
             <Route path={'/product'} component={Product} />
             <Route path={'/shopping/:category/:subcategory'} component={Shop} />
             <Route path={'/shopping/:category'} component={Shop} />

@@ -28,18 +28,18 @@ const Product = (props) => {
                         <div className="col-md-6 offset-md-1 col-lg-8">
                             {/* rubric35 - the user should see the name of the selected product */}
                             <h1>{item.name}</h1>
-                            {/* rubcric39 - the user should see the price of the selected product */}
+                            {/* rubcric39 - The user should see the price of the selected product */}
                             <p>${item.price.toFixed(2)}</p>
                             {/* rubric37 - the user should see the rating of the selected product */}
                             <p>{rating}</p>
                             {/* rubric38 - the user should see the number of items in stock of the selected item */}
                             <p>{item.stock === 0 ? 'Sorry. Out of stock.' : item.stock + " currently in stock."}</p>
-                            {/* rubric40 - the user should see a description of the selected product */}
+                            {/* rubric40 - The user should see a description of the selected product */}
                             <p>{item.description}</p>
-                            {/* rubric41 and rubric 42 - user should see an input field for quantity and a button to add to cart. */}
                             <AddItemToCartForm onCartAddItem={props.onCartAddItem} item={item} />
 
-                            {/* rubric43 - user should see a button labeled back */}
+                            {/* rubric43 - The user should see a button labeled “Back”  */}
+                            {/* rubric45 - Clicking the “Back” button should take the user back to where they came from, whether it was the Shopping page or the Product Page. */}
                             <button className="btn btn-outline-primary mt-3" onClick={(e) => props.history.goBack()}>Back</button>
                         </div>
                     </div>
