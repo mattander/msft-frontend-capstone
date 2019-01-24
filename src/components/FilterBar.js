@@ -1,6 +1,8 @@
 import React from 'react';
 
 const FilterBar = (props) => {
+  console.log(props.itemsShown)
+  console.log(props.itemsShown.length)
   return (
     <div className="container-fluid">
       {/* rubric15 - The user shall see a section in the controls bar that displays the
@@ -10,7 +12,7 @@ number of items shown out of the total number of items in the
 selected category */}
       {/* rubric27 - Clicking on a subcategory should change the name of the selected
 category in the controls bar -- it's pulled from the route */}
-      <div>Showing {props.filteredItemsList.length} of {props.itemsList.length} items in Category: {props.subcategory}</div>
+      <div>Showing {props.itemsShown.length > 1 ? props.itemsShown.length : props.itemsShown[0].length} of {props.itemsList.length} items in Category: {props.subcategory}</div>
       <form className="my-3 form-inline">
         <div className="form-group form-check">
           {/* rubric17 - The user shall see a toggle switch labeled “In Stock Only” in the

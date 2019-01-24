@@ -65,8 +65,6 @@ class ShopBody extends Component {
                 });
                 filteredList = listCopy;
               } else if (this.props.filters.sortBy === 'ratingHighToLow') {
-                console.log(items[0].rating, items[1].rating)
-                console.log(items[0].rating <= items[1].rating)
                 const listCopy = filteredList.sort((a, b) => {
                   if (parseInt(b.rating) <= parseInt(a.rating)) {
                     return -1;
@@ -103,10 +101,18 @@ class ShopBody extends Component {
           const paginateItems = (list, itemsPerPage) => {
             if (list.length > itemsPerPage) {
               let paginatedItemsList = [];
-              for (let i = 0; i <= parseInt(list.length / itemsPerPage); i++) {
-                const startIndex = itemsPerPage * i;
-                const stopIndex = i < parseInt(list.length / itemsPerPage) ? itemsPerPage * (i + 1) : list.length;
-                paginatedItemsList.push(list.slice(startIndex, stopIndex));
+              if (parseInt(list.length) % parseInt(itemsPerPage > 0)) {
+                for (let i = 0; i <= parseInt(list.length / itemsPerPage); i++) {
+                  const startIndex = itemsPerPage * i;
+                  const stopIndex = i < parseInt(list.length / itemsPerPage) ? itemsPerPage * (i + 1) : list.length;
+                  paginatedItemsList.push(list.slice(startIndex, stopIndex));
+                }
+              } else {
+                for (let i = 0; i < parseInt(list.length / itemsPerPage); i++) {
+                  const startIndex = itemsPerPage * i;
+                  const stopIndex = i < parseInt(list.length / itemsPerPage) ? itemsPerPage * (i + 1) : list.length;
+                  paginatedItemsList.push(list.slice(startIndex, stopIndex));
+                }
               }
               return paginatedItemsList;
             } else {
@@ -149,11 +155,11 @@ class ShopBody extends Component {
                 {/* rubric14 - The user shall see a controls bar */}
                 {/* rubric20 - The user shall see a grid that is populated with the products of
 the selected category  */}
-                <FilterBarContainer itemsList={itemsList} filteredItemsList={filteredItems} categoryInfo={this.props.categoryInfo} />
+                <FilterBarContainer itemsShown={paginatedItems} page={this.state} itemsList={itemsList} filteredItemsList={filteredItems} categoryInfo={this.props.categoryInfo} />
                 <div className="card-container">
                   {filteredItems.length > this.props.filters.showNumItems ? paginatedItems[this.state.page] : paginatedItems}
                 </div>
-                {filteredItems.length > this.props.showNumItems < filteredItems.length ? <nav className="d-flex justify-content-center">
+                {filteredItems.length > parseInt(this.props.filters.showNumItems) ? <nav className="d-flex justify-content-center">
                   <ul className="pagination">
                     {this.state.page === 0 ? <li className="page-item disabled"><button className="page-link" onClick={(e) => this.prevPage(e)}><FontAwesomeIcon icon="chevron-left" /> Prev</button></li> : <li className="page-item"><button className="page-link" onClick={(e) => this.prevPage(e)}><FontAwesomeIcon icon="chevron-left" /> Prev</button></li>}
                     {paginationButtons}
