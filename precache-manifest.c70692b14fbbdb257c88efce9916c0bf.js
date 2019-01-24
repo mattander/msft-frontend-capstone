@@ -16,23 +16,23 @@ self.__precacheManifest = [
     "url": "/msft-frontend-capstone/static/js/runtime~main.259905c6.js"
   },
   {
-    "revision": "dd729ad40d8494c95350",
-    "url": "/msft-frontend-capstone/static/js/main.dd729ad4.chunk.js"
+    "revision": "cedce1e0667c438d8a7b",
+    "url": "/msft-frontend-capstone/static/js/main.cedce1e0.chunk.js"
   },
   {
-    "revision": "2c6acc1f169b4862e249",
-    "url": "/msft-frontend-capstone/static/js/1.2c6acc1f.chunk.js"
+    "revision": "513527d4763710c7f925",
+    "url": "/msft-frontend-capstone/static/js/1.513527d4.chunk.js"
   },
   {
-    "revision": "dd729ad40d8494c95350",
-    "url": "/msft-frontend-capstone/static/css/main.823dea64.chunk.css"
+    "revision": "cedce1e0667c438d8a7b",
+    "url": "/msft-frontend-capstone/static/css/main.2e79dd02.chunk.css"
   },
   {
-    "revision": "2c6acc1f169b4862e249",
-    "url": "/msft-frontend-capstone/static/css/1.d287c9cb.chunk.css"
+    "revision": "513527d4763710c7f925",
+    "url": "/msft-frontend-capstone/static/css/1.8c4334a3.chunk.css"
   },
   {
-    "revision": "df31459e21d59503be84bf9711065b6b",
+    "revision": "1a8a7e3a4a17fb4fcb6b480026a23574",
     "url": "/msft-frontend-capstone/index.html"
   }
 ];
