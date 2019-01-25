@@ -5,8 +5,7 @@ import CartIconContainer from '../containers/CartIconContainer';
 const Header = () => {
   return (
     <header>
-      {/* rubric68 - The header bar should always be at the top of the page - fixed-top class */}
-      <nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+      <nav className="navbar navbar-expand-md navbar-dark bg-primary">
         {/* rubric65 - User shall see a link to the home page */}
         <div className="container">
           {/* rubric69 - Clicking the home page link should take the user to the home page  */}

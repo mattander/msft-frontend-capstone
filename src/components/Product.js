@@ -28,7 +28,7 @@ const Product = (props) => {
                         <div className="col-md-6 offset-md-1 col-lg-8">
                             {/* rubric35 - the user should see the name of the selected product */}
                             <h1>{item.name}</h1>
-                            {/* rubcric39 - The user should see the price of the selected product */}
+                            {/* rubric39 - The user should see the price of the selected product */}
                             <p>${item.price.toFixed(2)}</p>
                             {/* rubric37 - the user should see the rating of the selected product */}
                             <p>{rating}</p>

@@ -41,7 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        {/* rubric68 - header always at the top */}
+        {/* rubric68 - The header bar should always be at the top of the page - fixed-top class */}
         <Header />
         <div id="bodyContent" className="mb-5">
           <Switch>

@@ -47,6 +47,7 @@ class Carousel extends Component {
     clearInterval(this.state.carousel);
   }
 
+  // rubric10 - If the “Toggle Slide Show” switch is checked, the product carousel should automatically move forward one slide every 3 seconds 
   handleChange(e) {
     this.setState({
       paused: !this.state.paused

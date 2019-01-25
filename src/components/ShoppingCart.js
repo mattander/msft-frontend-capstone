@@ -47,7 +47,7 @@ const ShoppingCart = (props) => {
               <button onClick={(e) => {
                 props.cartRemoveItem(item)
               }} className="my-2 btn btn-outline-danger btn-sm">Remove from cart</button>
-              {/* The cost column in the table should update if the quantity input field is changed */}
+              {/* rubric55 - The cost column in the table should update if the quantity input field is changed */}
               <p>Total: ${(item.item.price * item.quantity).toFixed(2)}</p>
               <p>Per item: ${item.item.price.toFixed(2)}</p>
               <form className="form-inline">
