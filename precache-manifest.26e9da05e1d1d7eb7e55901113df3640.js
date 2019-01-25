@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/msft-frontend-capstone/static/css/1.8c4334a3.chunk.css"
   },
   {
-    "revision": "ced152e88b7cbb97cac8450fa26d22ef",
+    "revision": "658c2f69fa69d888808d235f93051279",
     "url": "/msft-frontend-capstone/index.html"
   }
 ];
