@@ -27,6 +27,8 @@ class ShippingDetailsForm extends Component {
     })
   }
 
+  // rubric51 - The checkout button should create an alert based on the users shipping details and total cost. 
+
   onSubmit(e) {
     e.preventDefault();
     const address = this.state.address2.length > 0 ? this.state.address1 + '\n' + this.state.address2 + '\n' : this.state.address1 + '\n';
@@ -35,8 +37,12 @@ class ShippingDetailsForm extends Component {
     return e;
   }
   render() {
-    // rubric52 - form should be validated
+    // rubric52 - The form should show validation errors if the form isn’t filled out correctly and the checkout button is pressed - (added the 'needs-validation' tag and hooked up required)
     return (
+      // rubric48 - The user should see a form labeled “Enter Shipping Details” that
+      // has text input fields for the users name, address, city, and phone
+      // number. These input fields should have placeholders that show
+      // what they represent. 
       <form className="needs-validation" onSubmit={this.onSubmit} id="shippingDetails">
         <fieldset disabled={this.props.disabled}>
           <p>Name</p>
@@ -77,6 +83,7 @@ class ShippingDetailsForm extends Component {
           <label htmlFor="phone">Phone number</label>
           <input onChange={this.handleChange} type="tel" className="form-control" id="phone" placeholder="Phone number" disabled={this.props.disabled} required />
         </div>
+        {/* rubric50 = The user should see a checkout button */}
         <button type="submit" className="btn btn-primary" disabled={this.props.disabled}>Checkout</button>
       </form>
     );

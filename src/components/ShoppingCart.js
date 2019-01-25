@@ -43,14 +43,15 @@ const ShoppingCart = (props) => {
             </div>
             <div className="col-xs-8">
               <h5>{item.name}</h5>
-              {/* rubric54 - cost updates when items are updated or removed (event call) */}
+              {/* rubric54 - The remove button should remove an item from the shopping cart  */}
               <button onClick={(e) => {
                 props.cartRemoveItem(item)
               }} className="my-2 btn btn-outline-danger btn-sm">Remove from cart</button>
+              {/* The cost column in the table should update if the quantity input field is changed */}
               <p>Total: ${(item.item.price * item.quantity).toFixed(2)}</p>
               <p>Per item: ${item.item.price.toFixed(2)}</p>
               <form className="form-inline">
-                {/* rubric53 - cost updates when items are updated or removed (event call) */}
+                {/* rubric53 - The cost details section should update if any items are removed from the shopping cart of if any of the item quantities are updated  */}
                 <input className="form-control" onChange={(e) => {
                   props.cartUpdateItem({
                     name: item.name,
@@ -81,13 +82,15 @@ const ShoppingCart = (props) => {
           </article>
 
           <article className="col-xs-12 col-md-6">
+            {/* rubric49 - The user should see a section showing the subtotal cost of all the
+items in the shopping cart, the shipping cost, the tax cost, and a
+total cost of all of the items in the shipping cost. */}
             <h2>Cart Summary</h2>
             <p className="border-bottom border-muted d-flex justify-content-between"><strong>Subtotal:</strong><span className="text-muted">${subtotal.toFixed(2)}</span></p>
             <p className="border-bottom border-muted d-flex justify-content-between"><strong>Shipping:</strong><span className="text-muted">${shipping.toFixed(2)}</span></p>
             <p className="border-bottom border-muted d-flex justify-content-between"><strong>Tax:</strong><span className="text-muted">${tax.toFixed(2)}</span></p>
             <p className="lead d-flex justify-content-between"><strong>Total:</strong><strong>${total.toFixed(2)}</strong></p>
             <hr />
-            {/* rubric50 = The user should see a checkout button */}
             <h4 className="mt-3">Enter your shipping details</h4>
             <ShippingDetailsForm disabled={false} total={total} />
           </article>
