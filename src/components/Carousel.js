@@ -146,7 +146,7 @@ product images.  */}
                     {/* rubric09 - If the user clicks on a product image, they should be taken to a
 product page that is populated with the details of the clicked
 product  */}
-                    <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')}><img src={this.props.productList[0].imagelink} alt="..." /></Link>
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')} className="carousel__image-link"><img src={this.props.productList[0].imagelink} alt="..." /></Link>
                   </div>
                   <div className="col-lg-6 carousel-text">
                     <Link to={'/product?name=' + toTitleCase(this.props.productList[0].name, '-', ' ', 'lower')} ><p><span className="lead">This is our best special yet!</span> <br />This high-quality baby bib will make your child really feel the love. Come in and buy one today.
@@ -161,7 +161,7 @@ product  */}
                     {/* rubric09 - If the user clicks on a product image, they should be taken to a
 product page that is populated with the details of the clicked
 product  */}
-                    <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')}><img src={this.props.productList[64].imagelink} alt="..." /></Link>
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')} className="carousel__image-link"><img src={this.props.productList[64].imagelink} alt="..." /></Link>
                   </div>
                   <div className="col-lg-6 carousel-text">
                     <Link to={'/product?name=' + toTitleCase(this.props.productList[64].name, '-', ' ', 'lower')} ><p><span className="lead">It's milk.</span> <br />Okay, do I really have to sell you on milk? <br />Cookies. Cereal. Nice cold glass. Whatever. It's milk.
@@ -176,7 +176,7 @@ product  */}
                     {/* rubric09 - If the user clicks on a product image, they should be taken to a
 product page that is populated with the details of the clicked
 product  */}
-                    <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')} ><img src={this.props.productList[92].imagelink} alt="..." /></Link>
+                    <Link to={'/product?name=' + toTitleCase(this.props.productList[92].name, '-', ' ', 'lower')} className="carousel__image-link"><img src={this.props.productList[92].imagelink} alt="..." /></Link>
                   </div>
                   <div className="col-xs-12 col-lg-6 carousel-text">
 

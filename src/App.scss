@@ -41,9 +41,18 @@ body {
     padding: 2rem;
     background-color: #f0f0f0;
 
-    img {
-      height: 250px;
-      display: block;
+    // img {
+    //   height: 250px;
+    //   display: block;
+    // }
+
+    .carousel__image-link {
+      height: 200px;
+      text-align: center;
+
+      img {
+        max-height: 100%;
+      }
     }
   }
 
