@@ -16,23 +16,23 @@ self.__precacheManifest = [
     "url": "/msft-frontend-capstone/static/js/runtime~main.259905c6.js"
   },
   {
-    "revision": "1438e8ff8a2d56ab8f58",
-    "url": "/msft-frontend-capstone/static/js/main.1438e8ff.chunk.js"
+    "revision": "5f857c47ccfcd9d2510b",
+    "url": "/msft-frontend-capstone/static/js/main.5f857c47.chunk.js"
   },
   {
     "revision": "513527d4763710c7f925",
     "url": "/msft-frontend-capstone/static/js/1.513527d4.chunk.js"
   },
   {
-    "revision": "1438e8ff8a2d56ab8f58",
-    "url": "/msft-frontend-capstone/static/css/main.23a556d2.chunk.css"
+    "revision": "5f857c47ccfcd9d2510b",
+    "url": "/msft-frontend-capstone/static/css/main.b342d609.chunk.css"
   },
   {
     "revision": "513527d4763710c7f925",
     "url": "/msft-frontend-capstone/static/css/1.8c4334a3.chunk.css"
   },
   {
-    "revision": "658c2f69fa69d888808d235f93051279",
+    "revision": "300a4c6c0b6053162e292a1c46c96e66",
     "url": "/msft-frontend-capstone/index.html"
   }
 ];
